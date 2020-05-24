@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>xiangyi</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="xiangyi0715.github.io/"/>
+  <updated>2020-05-24T03:52:21.623Z</updated>
+  <id>xiangyi0715.github.io/</id>
+  
+  <author>
+    <name>xiangyi</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ubuntu中遇到的小问题汇总(不定期更新)</title>
+    <link href="xiangyi0715.github.io/2020/05/24/ubuntu-zhong-yu-dao-de-xiao-wen-ti-hui-zong-bu-ding-qi-geng-xin/"/>
+    <id>xiangyi0715.github.io/2020/05/24/ubuntu-zhong-yu-dao-de-xiao-wen-ti-hui-zong-bu-ding-qi-geng-xin/</id>
+    <published>2020-05-24T06:04:22.087Z</published>
+    <updated>2020-05-24T03:52:21.623Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;👉问题一：-dpkg问题&quot;&gt;&lt;a href=&quot;#👉问题一：-dpkg问题&quot; class=&quot;headerlink&quot; title=&quot;👉问题一：(dpkg问题)&quot;&gt;&lt;/a&gt;👉&lt;strong&gt;问题一：(dpkg问题)&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;出现E:
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="xiangyi0715.github.io/2020/05/24/hello-world/"/>
+    <id>xiangyi0715.github.io/2020/05/24/hello-world/</id>
+    <published>2020-05-24T02:11:28.167Z</published>
+    <updated>2020-05-24T02:11:28.167Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+        
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>

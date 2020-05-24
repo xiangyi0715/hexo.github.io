@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>ubuntu中遇到的小问题汇总(不定期更新)</title>
+      <link href="/2020/05/24/ubuntu-zhong-yu-dao-de-xiao-wen-ti-hui-zong-bu-ding-qi-geng-xin/"/>
+      <url>/2020/05/24/ubuntu-zhong-yu-dao-de-xiao-wen-ti-hui-zong-bu-ding-qi-geng-xin/</url>
+      
+        <content type="html"><![CDATA[<h2 id="👉问题一：-dpkg问题"><a href="#👉问题一：-dpkg问题" class="headerlink" title="👉问题一：(dpkg问题)"></a>👉<strong>问题一：(dpkg问题)</strong></h2><p>出现E: Sub-process /usr/bin/dpkg returned an error code<br>当使用apt-get安装软件时有时会发生类似于<br>Errors were encountered while processing:<br>…(一些软件包)…</p><p>E: Sub-process /usr/bin/dpkg returned an error code(1)的错误。<br>原因：<br>这是Ubuntu和其他基于 Debian 的发行版中的一个常见问题，你尝试更新系统或安装新软件包时会遇到类似 “Sub-process /usr/bin/dpkg returned an error code” 的错误。它告诉我们…(软件包)… 引发了问题<br>方法1、  </p><pre><code>sudo mv /var/lib/dpkg/info /var/lib/dpkg/info.bak //现将info文件夹更名sudo mkdir /var/lib/dpkg/info //再新建一个新的info文件夹sudo apt-get updateapt-get -f install xxxsudo mv /var/lib/dpkg/info/* /var/lib/dpkg/info.bak//执行完上一步操作后会在新的info文件夹下生成一些文件，现将这些文件全部移到info.bak文件夹下sudo rm -rf /var/lib/dpkg/info //把自己新建的info文件夹删掉sudo mv /var/lib/dpkg/info.bak /var/lib/dpkg/info //把以前的info文件夹重新改回名字  </code></pre><p>到此，一般这个方法可以解决问题了。<br>2、</p><pre><code>for i in /usr/share/fonts/X11/* /usr/share/fonts/truetype/*do sudo touch &quot;$i&quot;done</code></pre><p>3、</p><pre><code>sudo apt-get update --fix-missingsudo apt-get autoremove &amp;&amp; sudo apt-get clean &amp;&amp; sudo apt-get install -f</code></pre><h2 id="👉问题二：-挂载手机存储"><a href="#👉问题二：-挂载手机存储" class="headerlink" title="👉问题二：(挂载手机存储)"></a>👉<strong>问题二：(挂载手机存储)</strong></h2><p>不能访问部分手机的存储。<br>方法：（使用jmtpfs）<br>安装：</p><pre><code>sudo apt-get install mtp-tools jmtpfs</code></pre><p>准备：</p><pre><code>sudo mkdir /media/mtpsudo chmod 755 /media/mtp</code></pre><p>挂载：</p><pre><code>sudo jmtpfs -o allow_other /media/mtp</code></pre><p>卸载：</p><pre><code>sudo umount /media/mtp</code></pre><h2 id="👉问题三：-dpkg锁"><a href="#👉问题三：-dpkg锁" class="headerlink" title="👉问题三：(dpkg锁)"></a>👉<strong>问题三：(dpkg锁)</strong></h2><p>E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)<br>E: Unable to lock the administration directory (/var/lib/dpkg/)<br>原因：<br>其实这是因为有另外一个程序在运行，导致锁不可用。原因可能是上次运行更新或安装没有正常完成。解决办法是杀死此进程。<br>方法：</p><pre><code>sudo rm /var/cache/apt/archives/locksudo rm /var/lib/dpkg/lock//这样可能还会出现问题，解决方案如下sudo dpkg --configure -asudo apt-get update</code></pre><h2 id="👉问题四-软件中心不显示图标"><a href="#👉问题四-软件中心不显示图标" class="headerlink" title="👉问题四:(软件中心不显示图标)"></a>👉<strong>问题四:(软件中心不显示图标)</strong></h2><p>打开Ubuntu软件中心无图标，不显示软件。<br>方法：</p><pre><code>sudo apt updatesudo apt upgradesudo systemctl reboot</code></pre><h2 id="👉问题五-nvidia驱动无法进入Gnome"><a href="#👉问题五-nvidia驱动无法进入Gnome" class="headerlink" title="👉问题五:(nvidia驱动无法进入Gnome)"></a>👉<strong>问题五:(nvidia驱动无法进入Gnome)</strong></h2><p>由于nvidia驱动程序更新失败，导致不能进入Gnome<br>started session … of user gdm.<br>started user manager for UID 121<br>方法：</p><p>通过ctrl+alt f1—f6进入其他终端<br>删除所有nvidia驱动：</p><pre><code>sudo apt-get remove --purge nvidia-*</code></pre><p>查看系统可以安装的nvidia驱动程序：</p><pre><code>ubuntu-drivers devices 或 sudo dpkg --list | grep nvidia-*</code></pre><p>然后安装相应的驱动。（<strong>驱动或软件更新需谨慎</strong>）</p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2020/05/24/hello-world/"/>
+      <url>/2020/05/24/hello-world/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
