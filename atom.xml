@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xiangyi0715.github.io/"/>
-  <updated>2020-05-24T03:52:21.623Z</updated>
+  <updated>2020-05-24T07:11:03.543Z</updated>
   <id>xiangyi0715.github.io/</id>
   
   <author>
@@ -17,34 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>ubuntu中遇到的小问题汇总(不定期更新)</title>
-    <link href="xiangyi0715.github.io/2020/05/24/ubuntu-zhong-yu-dao-de-xiao-wen-ti-hui-zong-bu-ding-qi-geng-xin/"/>
-    <id>xiangyi0715.github.io/2020/05/24/ubuntu-zhong-yu-dao-de-xiao-wen-ti-hui-zong-bu-ding-qi-geng-xin/</id>
-    <published>2020-05-24T06:04:22.087Z</published>
-    <updated>2020-05-24T03:52:21.623Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;h2 id=&quot;👉问题一：-dpkg问题&quot;&gt;&lt;a href=&quot;#👉问题一：-dpkg问题&quot; class=&quot;headerlink&quot; title=&quot;👉问题一：(dpkg问题)&quot;&gt;&lt;/a&gt;👉&lt;strong&gt;问题一：(dpkg问题)&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;出现E:
-        
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
     <title>Hello World</title>
     <link href="xiangyi0715.github.io/2020/05/24/hello-world/"/>
     <id>xiangyi0715.github.io/2020/05/24/hello-world/</id>
-    <published>2020-05-24T02:11:28.167Z</published>
-    <updated>2020-05-24T02:11:28.167Z</updated>
+    <published>2020-05-24T07:11:03.607Z</published>
+    <updated>2020-05-24T07:11:03.543Z</updated>
     
     <summary type="html">
     
@@ -59,6 +36,103 @@
     </summary>
     
     
+      <category term="内置" scheme="xiangyi0715.github.io/categories/%E5%86%85%E7%BD%AE/"/>
+    
+    
+      <category term="内置" scheme="xiangyi0715.github.io/tags/%E5%86%85%E7%BD%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于QW-PR的一部分总结</title>
+    <link href="xiangyi0715.github.io/2020/01/13/guan-yu-qw-pr-de-yi-bu-fen-zong-jie/"/>
+    <id>xiangyi0715.github.io/2020/01/13/guan-yu-qw-pr-de-yi-bu-fen-zong-jie/</id>
+    <published>2020-01-13T12:01:19.000Z</published>
+    <updated>2020-05-24T07:44:37.751Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;Qt+Windows-Plate Recognition&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="原" scheme="xiangyi0715.github.io/categories/%E5%8E%9F/"/>
+    
+    
+      <category term="windows" scheme="xiangyi0715.github.io/tags/windows/"/>
+    
+      <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
+    
+      <category term="Qt" scheme="xiangyi0715.github.io/tags/Qt/"/>
+    
+      <category term="车牌识别" scheme="xiangyi0715.github.io/tags/%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>个人短句集</title>
+    <link href="xiangyi0715.github.io/2020/01/05/ge-ren-duan-ju-ji/"/>
+    <id>xiangyi0715.github.io/2020/01/05/ge-ren-duan-ju-ji/</id>
+    <published>2020-01-04T16:00:00.000Z</published>
+    <updated>2020-05-24T07:38:09.199Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;“诗只不过是生命证物之一，若你人生丰实，诗只是灰烬而已。”（：&lt;/p&gt;
+&lt;h2 id=&quot;追求&quot;&gt;&lt;a href=&quot;#追求&quot; class=&quot;headerlink&quot; title=&quot;追求&quot;&gt;&lt;/a&gt;&lt;strong&gt;追求&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="原 短句" scheme="xiangyi0715.github.io/categories/%E5%8E%9F-%E7%9F%AD%E5%8F%A5/"/>
+    
+    
+      <category term="诗句" scheme="xiangyi0715.github.io/tags/%E8%AF%97%E5%8F%A5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>ubuntu中遇到的小问题汇总(不定期更新)</title>
+    <link href="xiangyi0715.github.io/2020/01/04/ubuntu-zhong-yu-dao-de-xiao-wen-ti-hui-zong-bu-ding-qi-geng-xin/"/>
+    <id>xiangyi0715.github.io/2020/01/04/ubuntu-zhong-yu-dao-de-xiao-wen-ti-hui-zong-bu-ding-qi-geng-xin/</id>
+    <published>2020-01-03T16:00:00.000Z</published>
+    <updated>2020-05-24T07:16:17.431Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h2 id=&quot;👉问题一：-dpkg问题&quot;&gt;&lt;a href=&quot;#👉问题一：-dpkg问题&quot; class=&quot;headerlink&quot; title=&quot;👉问题一：(dpkg问题)&quot;&gt;&lt;/a&gt;👉&lt;strong&gt;问题一：(dpkg问题)&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;出现E:
+        
+      
+    
+    </summary>
+    
+    
+      <category term="原" scheme="xiangyi0715.github.io/categories/%E5%8E%9F/"/>
+    
+    
+      <category term="ubuntu" scheme="xiangyi0715.github.io/tags/ubuntu/"/>
+    
+      <category term="bugs" scheme="xiangyi0715.github.io/tags/bugs/"/>
     
   </entry>
   

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="ubuntu中遇到的小问题汇总(不定期更新), xiangyi">
+    <meta name="keywords" content="个人短句集, xiangyi">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>ubuntu中遇到的小问题汇总(不定期更新) | xiangyi</title>
+    <title>个人短句集 | xiangyi</title>
     <link rel="icon" type="image/jpeg" href="https://i.loli.net/2020/03/11/uDnxAlKdjmagczv.jpg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -309,12 +309,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">ubuntu中遇到的小问题汇总(不定期更新)</h1>
+                    <h1 class="description center-align post-title">个人短句集</h1>
                 </div>
             </div>
         </div>
@@ -429,12 +429,25 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%AF%97%E5%8F%A5/">
+                                <span class="chip bg-color">诗句</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%8E%9F-%E7%9F%AD%E5%8F%A5/" class="post-category">
+                                原 短句
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -443,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-24
+                    2020-01-05
                 </div>
                 
 
@@ -452,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    651
+                    2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    6 分
                 </div>
                 
 
@@ -474,37 +487,43 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="👉问题一：-dpkg问题"><a href="#👉问题一：-dpkg问题" class="headerlink" title="👉问题一：(dpkg问题)"></a>👉<strong>问题一：(dpkg问题)</strong></h2><p>出现E: Sub-process /usr/bin/dpkg returned an error code<br>当使用apt-get安装软件时有时会发生类似于<br>Errors were encountered while processing:<br>…(一些软件包)…</p>
-<p>E: Sub-process /usr/bin/dpkg returned an error code(1)的错误。<br>原因：<br>这是Ubuntu和其他基于 Debian 的发行版中的一个常见问题，你尝试更新系统或安装新软件包时会遇到类似 “Sub-process /usr/bin/dpkg returned an error code” 的错误。它告诉我们…(软件包)… 引发了问题<br>方法1、  </p>
-<pre><code>sudo mv /var/lib/dpkg/info /var/lib/dpkg/info.bak //现将info文件夹更名
-sudo mkdir /var/lib/dpkg/info //再新建一个新的info文件夹
-sudo apt-get update
-apt-get -f install xxx
-sudo mv /var/lib/dpkg/info/* /var/lib/dpkg/info.bak
-//执行完上一步操作后会在新的info文件夹下生成一些文件，现将这些文件全部移到info.bak文件夹下
-sudo rm -rf /var/lib/dpkg/info //把自己新建的info文件夹删掉
-sudo mv /var/lib/dpkg/info.bak /var/lib/dpkg/info //把以前的info文件夹重新改回名字  </code></pre><p>到此，一般这个方法可以解决问题了。<br>2、</p>
-<pre><code>for i in /usr/share/fonts/X11/* /usr/share/fonts/truetype/*
-do sudo touch &quot;$i&quot;
-done</code></pre><p>3、</p>
-<pre><code>sudo apt-get update --fix-missing
-sudo apt-get autoremove &amp;&amp; sudo apt-get clean &amp;&amp; sudo apt-get install -f</code></pre><h2 id="👉问题二：-挂载手机存储"><a href="#👉问题二：-挂载手机存储" class="headerlink" title="👉问题二：(挂载手机存储)"></a>👉<strong>问题二：(挂载手机存储)</strong></h2><p>不能访问部分手机的存储。<br>方法：（使用jmtpfs）<br>安装：</p>
-<pre><code>sudo apt-get install mtp-tools jmtpfs</code></pre><p>准备：</p>
-<pre><code>sudo mkdir /media/mtp
-sudo chmod 755 /media/mtp</code></pre><p>挂载：</p>
-<pre><code>sudo jmtpfs -o allow_other /media/mtp</code></pre><p>卸载：</p>
-<pre><code>sudo umount /media/mtp</code></pre><h2 id="👉问题三：-dpkg锁"><a href="#👉问题三：-dpkg锁" class="headerlink" title="👉问题三：(dpkg锁)"></a>👉<strong>问题三：(dpkg锁)</strong></h2><p>E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)<br>E: Unable to lock the administration directory (/var/lib/dpkg/)<br>原因：<br>其实这是因为有另外一个程序在运行，导致锁不可用。原因可能是上次运行更新或安装没有正常完成。解决办法是杀死此进程。<br>方法：</p>
-<pre><code>sudo rm /var/cache/apt/archives/lock
-sudo rm /var/lib/dpkg/lock
-//这样可能还会出现问题，解决方案如下
-sudo dpkg --configure -a
-sudo apt-get update</code></pre><h2 id="👉问题四-软件中心不显示图标"><a href="#👉问题四-软件中心不显示图标" class="headerlink" title="👉问题四:(软件中心不显示图标)"></a>👉<strong>问题四:(软件中心不显示图标)</strong></h2><p>打开Ubuntu软件中心无图标，不显示软件。<br>方法：</p>
-<pre><code>sudo apt update
-sudo apt upgrade
-sudo systemctl reboot</code></pre><h2 id="👉问题五-nvidia驱动无法进入Gnome"><a href="#👉问题五-nvidia驱动无法进入Gnome" class="headerlink" title="👉问题五:(nvidia驱动无法进入Gnome)"></a>👉<strong>问题五:(nvidia驱动无法进入Gnome)</strong></h2><p>由于nvidia驱动程序更新失败，导致不能进入Gnome<br>started session … of user gdm.<br>started user manager for UID 121<br>方法：</p>
-<p>通过ctrl+alt f1—f6进入其他终端<br>删除所有nvidia驱动：</p>
-<pre><code>sudo apt-get remove --purge nvidia-*</code></pre><p>查看系统可以安装的nvidia驱动程序：</p>
-<pre><code>ubuntu-drivers devices 或 sudo dpkg --list | grep nvidia-*</code></pre><p>然后安装相应的驱动。（<strong>驱动或软件更新需谨慎</strong>）</p>
+                <p>“诗只不过是生命证物之一，若你人生丰实，诗只是灰烬而已。”（：</p>
+<h2 id="追求"><a href="#追求" class="headerlink" title="追求"></a><strong>追求</strong></h2><p> $<del>~</del>$——2009年7月以前<br>仰望苍穹席九州，<br>俯观品类尽自由，<br>一瓣心香淡如她，<br>蓦然回首败不休，</p>
+<p>乘风破浪寻追求，<br>荆棘密布练春秋,<br>光阴雕磨志不变，<br>青山依旧永长久。<br><br/></p>
+<h2 id="离别-其一"><a href="#离别-其一" class="headerlink" title="离别(其一)"></a><strong>离别(其一)</strong></h2><p> $<del>~</del>$——2009年7月21日<br> 昨夜离别今日寒，<br> 东风无力百花残。<br> 一瓣馨香淡如她，<br> 相见时欢别亦难。<br> 独上高山永无怨，<br> 一览众山在心间。<br> 少年壮志不言愁，<br> 敢教日月换新天。<br> <br/></p>
+<h2 id="离别-其二"><a href="#离别-其二" class="headerlink" title="离别(其二)"></a><strong>离别(其二)</strong></h2><p> $<del>~</del>$——2009年7月21日<br> 一日离别两无言，<br> 雨水洒遍天地间。<br> 燕叫春回头不回，<br> 一心愿为耀天边。<br> 倾城倾国梦期盼，<br> 柔璐发丝绕双眸。<br> 鹰击苍穹冲霄汉，<br> 千载谁堪伯仲间。<br> <br/></p>
+<h2 id="沁园春-中华魂"><a href="#沁园春-中华魂" class="headerlink" title="沁园春  中华魂"></a><strong>沁园春  中华魂</strong></h2><p>  $<del>~</del>$——2009年10月1日<br>洪涛东去，<br>汹涌澎湃，<br>雪浪滔天。<br>忆昔年往事，<br>不禁慨叹。<br>列强侵华，<br>撼我江山。<br>火烧园林，<br>屠杀千万，<br>中华儿女痛且坚。<br>望天边，<br>那晓岸将辉，<br>红日送暖。 </p>
+<p>曾记神州大地，<br>春风吹遍，<br>生机盎然。<br>看华夏儿女，<br>意气风发；<br>同甘共苦，<br>重整河山。<br>改革开放，<br>一国两制，<br>书宏图巨篇。<br>放未来，<br>炎黄子孙顶，<br>兴我家园。$<del>~</del>$——赠予中华人民共和国诞辰六十周年<br><br/></p>
+<h2 id="奋斗"><a href="#奋斗" class="headerlink" title="奋斗"></a><strong>奋斗</strong></h2><p>$<del>~</del>$——2009年12月13日<br>黑夜，摸索着黎明前行，<br>远方的星光，是否为日出而探路?<br>古老的长城，沉静的宫殿，<br>山间的林荫，城中的小巷。<br>是黑暗？是轮廓？是影子？是光明？<br>金色的光茫已洒遍神州大地，<br>新世纪的中国正巍峨屹立于世界东方。<br><br/></p>
+<h2 id="去最远的地方"><a href="#去最远的地方" class="headerlink" title="去最远的地方"></a><strong>去最远的地方</strong></h2><p>$<del>~</del>$——2010年2月2日<br>时间走得很急，猛然转身。<br>摇曳的影子在风中徘徊。<br>未知的未来，<br>无需谁来编排。<br>梦想的色彩，期待主宰，<br>不必信手涂改，<br>生活依然多姿多彩。<br>易逝的韶华轻浮脸颊，<br>享受烟雨中的漫步，<br>等待晴天时的扬帆远航。<br><br/></p>
+<h2 id="思"><a href="#思" class="headerlink" title="思"></a><strong>思</strong></h2><p>$<del>~</del>$——2010年2月19日<br>回忆，让我们沉思。<br>而无边的寂寥，让我们多了一份宁静与清明。<br>也许，<br>在远方的你，<br>有着相同的感受与希望。</p>
+<p>时光回溯到以前的夜晚，<br>幽远的星空依旧绚丽夺目，<br>久久望着它，<br>眼前浮现出清晰的画面，<br>你的声音在那飘渺的烟雾中回响。</p>
+<p>只有文字能寄托无奈，<br>望着你远去的背影，<br>消失在地平线的尽头。<br>猛然转身，<br>荒凉的田野等待雨露的浇灌。</p>
+<p>行人的足迹是那么错综复杂。<br>寻觅着你的足迹，<br>憧憬发现后的喜悦。<br>期待，摸索，希望，<br>编织出相见时的桥梁。<br><br/></p>
+<h2 id="震动"><a href="#震动" class="headerlink" title="震动"></a><strong>震动</strong></h2><p>$<del>~</del>$——2010年5月1日<br>梦回昨天，心亦沉，天色明转灰。<br>风啸长空，黄沙卷，难见落英飞。<br>春回大地，地微颤，玉树化为悲。<br>天意无情，顷刻间，狼籍涟洏飞。</p>
+<p>细听周围，生命脆，脉搏弱而微。<br>八方亲友，筑信念，冲破砖石垒。<br>缕缕檀香，酒满杯，祭奠亡灵泪。<br>看罢疮痍，齐协力，共创家园美。$~~$——纪念玉树地震<br><br/></p>
+<h2 id="星空"><a href="#星空" class="headerlink" title="星空"></a><strong>星空</strong></h2><p>$<del>~</del>$——2010年7月24日<br>极目苍穹，星月轮，斗转随星移。<br>天之涯，地之角，谁可与心齐。<br>晨星炫目，焕碧空，若近即离。<br>此景此理，道似无形却有形，时人知宜。<br>华夏大地，风云涌，枝芽屹立。<br>看我东方巨龙，惊天地，腾空而起。<br><br/></p>
+<h2 id="我与你的距离"><a href="#我与你的距离" class="headerlink" title="我与你的距离"></a><strong>我与你的距离</strong></h2><p>$<del>~</del>$——2010年10月2日<br>有一个身影，日落了还彷徨。<br>无数个梦在心底激荡，<br>天空如碧波荡漾。<br>我与你的距离，似乎是翘首相望。</p>
+<p>人海茫茫，<br>寻找自己的模样，<br>我与你的距离，是那样模糊而绵长。</p>
+<p>曾记你，轻轻唱，<br>路很长，<br>风当作我飞翔的希望，<br>天使的翅膀，为你带来无尽的力量。</p>
+<p>空中的楼阁，海中的蜃景，<br>企图使你迷失方向，<br>细听我的声响，找回自己的芬芳。<br>行走的步调正激昂，<br>带上行囊，愿你一路飞翔。<br><br/></p>
+<h2 id="眺望"><a href="#眺望" class="headerlink" title="眺望"></a><strong>眺望</strong></h2><p>$<del>~</del>$——2011年元月<br>当我眺望天边，<br>似乎听到了晨曦的呢喃。<br>欢呼，雀跃。<br>又为春的来临祁盼。<br>时间的步调是那样轻健，<br>眼前的霞光顷刻不见。<br>我呆望着天边，<br>只有夕阳的余辉撒满金山。</p>
+<p>试图倒转再现，<br>但我无能为力。<br>沉默的誓言，<br>是否还能力挽狂澜。<br>哦！不用。<br>时间是会变化多端。<br>只留下我，<br>将期待新的明天！<br><br/></p>
+<h2 id="问天"><a href="#问天" class="headerlink" title="问天"></a><strong>问天</strong></h2><p>$<del>~</del>$——2011年2月<br>忆九天神舟，<br>怀今古，<br>舜尧谁数？<br>故地离兮，<br>往事风华注砥柱，<br>梦断苍穹旧路。<br>聚万里，<br>浮云归属。<br>天意一向高难问，<br>人情似，<br>冷暖秋风处。<br>同折柳，<br>别君去，<br>韶华意气趋残暑。<br>望星空，<br>淡月残云，<br>江山万里谁同路？<br>目极青天海岸，<br>红日朝发，<br>敢问天，<br>听霜露。<br><br/></p>
+<h2 id="长大后我就成了你"><a href="#长大后我就成了你" class="headerlink" title="长大后我就成了你"></a><strong>长大后我就成了你</strong></h2><p>$<del>~</del>$——2012年1月16日<br>小时，没有长大后的烦恼。<br>长大后，没有小时的快乐。<br>只是因为，<br>长大后没有成为你。</p>
+<p>希望啊 青春无法用尽，<br>盼望啊 再次寻找到你。<br>只是因为，<br>长大后想成为你。</p>
+<p>有谁能够坚守，<br>心中的那份信念。<br>无悔的承诺，筑起绚丽的彩练。</p>
+<p>险途，使人斗志昂扬，<br>山峰，令人一览群山。<br>激荡于心底，<br>只是因为，<br>长大后我就成了你。$<del>~</del>$——由张胜利的事迹想到，送给那些辛勤追寻自己目标的人们！<br><br/></p>
+<h2 id="沁园春-冬颜"><a href="#沁园春-冬颜" class="headerlink" title="沁园春 冬颜"></a><strong>沁园春 冬颜</strong></h2><p>$<del>~</del>$——2012年1月21日晚<br>雪漫北国，<br>万里江山，<br>意与谁言？<br>叹前路漫漫，<br>声断九天。<br>路转峰回，<br>今昔何年？<br>春秋华章，<br>冬夏依然，<br>笑对年华泪与欢。<br>雪龙舞，<br>看寒意阑珊，<br>尽在心间。</p>
+<p>朝夕如此并肩，<br>晓看春晖盼团圆。<br>惜似水流年，<br>又是龙颜。<br>万家灯火，<br>共展千年。<br>神舟平川，<br>雪域高原，<br>只愿天下共相伴。<br>细听声，<br>那踏雪绵延，<br>重走河山。<br><br/></p>
+<h2 id="寒梅赠友"><a href="#寒梅赠友" class="headerlink" title="寒梅赠友"></a><strong>寒梅赠友</strong></h2><p>$<del>~</del>$——2012年2月1日<br>唤友寻花花自休，<br>粉红零落几时有。<br>误入寒梅最深处，<br>堪比桃李杏花眸。<br><br/></p>
+<h2 id="清明月"><a href="#清明月" class="headerlink" title="清明月"></a><strong>清明月</strong></h2><p>$<del>~</del>$——2012年清明<br>清明明月，酌月夜，寒光浸杯盏。<br>阳春春色，风拂面，绿意满人间。<br>纸灰灰飞，烟灭间，化蝶坟碣连。<br>檀香燃冉，绕九泉，归路却绵延。<br>斟酒满杯，杜鹃啼，梦醒似昨天。<br>看罢云烟，争朝夕，前路仍依然。<br><br/></p>
+<h2 id="《康熙大帝》读后"><a href="#《康熙大帝》读后" class="headerlink" title="《康熙大帝》读后"></a><strong>《康熙大帝》读后</strong></h2><p>$<del>~</del>$——2012年夏<br>叶落秋风只三百，<br>无限春光待流觞。<br>策马奔腾随浪去，<br>月梭云影作戎装。<br>千古一帝传佳话，<br>万里江山美名扬。<br>嗟叹残年护风烛，<br>唯有日月送流芳。<br><br/></p>
+<h2 id="京娘湖记"><a href="#京娘湖记" class="headerlink" title="京娘湖记"></a><strong>京娘湖记</strong></h2><p>$<del>~</del>$——2013年4月5日<br>贞义武安京娘湖，<br>登高望汴宋太祖。<br>拔刀相助结兄妹，<br>平生素昧送京娘。<br>雾乘风去千年尽，<br>祠宇正气伫山墙。<br>活水清潭环群山，<br>群山揽雾作新装。<br>劲松立根岩中青，<br>遥望山里人家忙。<br><br/></p>
+<h2 id="寄·冀·记"><a href="#寄·冀·记" class="headerlink" title="寄·冀·记"></a><strong>寄·冀·记</strong></h2><p>$<del>~</del>$——2014年10月4日<br>一脉承太行，紫气映东海。<br>辽辽坝上广，故国守南疆。<br>对酒与万物，千杯论英雄。<br>若为骄阳顾，冷气还旧梦。<br>拨云豁开朗，长谈纵豪情。<br>乾坤谁主宰，日月令沉浮。<br><br/></p>
+<h2 id="时月"><a href="#时月" class="headerlink" title="时月"></a><strong>时月</strong></h2><p>$<del>~</del>$——2018年1月9日<br>寒风长影非月明，<br>高灯流火映苍穹。<br>那年清风春不再，<br>回首笑谈数星空。</p>
+<p>星空本无流沙狂，<br>残云伴影作新裳。<br>惜逢此时已深冬，<br>月明初探为(wéi)戎装。</p>
+<p>戎装一饮进胸膛，<br>侠肝孤胆化惆怅。<br>待到春风柳香来，<br>化作寒光蝶雁黄。</p>
 
             </div>
             <hr/>
@@ -530,7 +549,7 @@ sudo systemctl reboot</code></pre><h2 id="👉问题五-nvidia驱动无法进入
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="xiangyi0715.github.io/2020/05/24/ubuntu-zhong-yu-dao-de-xiao-wen-ti-hui-zong-bu-ding-qi-geng-xin/">xiangyi0715.github.io/2020/05/24/ubuntu-zhong-yu-dao-de-xiao-wen-ti-hui-zong-bu-ding-qi-geng-xin/</a>
+                    <a href="xiangyi0715.github.io/2020/01/05/ge-ren-duan-ju-ji/">xiangyi0715.github.io/2020/01/05/ge-ren-duan-ju-ji/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -567,7 +586,11 @@ sudo systemctl reboot</code></pre><h2 id="👉问题五-nvidia驱动无法进入
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/%E8%AF%97%E5%8F%A5/">
+                                    <span class="chip bg-color">诗句</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -975,8 +998,8 @@ sudo systemctl reboot</code></pre><h2 id="👉问题五-nvidia驱动无法进入
 <script>
     new Valine({
         el: '#vcomments',
-        appId: '',
-        appKey: '',
+        appId: 'jr5W4kBd51lUgWuddG9tyYg9-gzGzoHsz',
+        appKey: 'QP5tgocv5CBPAsr7NzCbIq1W',
         notify: 'true' === 'true',
         verify: 'false' === 'true',
         visitor: 'true' === 'true',
@@ -996,12 +1019,75 @@ sudo systemctl reboot</code></pre><h2 id="👉问题五-nvidia驱动无法进入
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2020/01/13/guan-yu-qw-pr-de-yi-bu-fen-zong-jie/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="关于QW-PR的一部分总结">
+                        
+                        <span class="card-title">关于QW-PR的一部分总结</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+Qt+Windows-Plate Recognition
+
+前言:$$车牌识别系统是现代智能交通系统中的重要组成部分之一，应用十分广泛并随着技术的发展日趋完善。它是以数字图像处理、模式识别、计算机视觉等技术为基础，对摄像头所拍摄的车辆图像
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8E%9F/" class="post-category">
+                                    原
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/windows/">
+                        <span class="chip bg-color">windows</span>
+                    </a>
+                    
+                    <a href="/tags/opencv/">
+                        <span class="chip bg-color">opencv</span>
+                    </a>
+                    
+                    <a href="/tags/Qt/">
+                        <span class="chip bg-color">Qt</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB/">
+                        <span class="chip bg-color">车牌识别</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/05/24/ubuntu-zhong-yu-dao-de-xiao-wen-ti-hui-zong-bu-ding-qi-geng-xin/">
+                <a href="/2020/01/04/ubuntu-zhong-yu-dao-de-xiao-wen-ti-hui-zong-bu-ding-qi-geng-xin/">
                     <div class="card-image">
                         
                         
@@ -1018,53 +1104,31 @@ sudo systemctl reboot</code></pre><h2 id="👉问题五-nvidia驱动无法进入
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-04
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            xiangyi
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8E%9F/" class="post-category">
+                                    原
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
-
                 
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/05/24/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-05-24
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            xiangyi
-                            
-                        </span>
-                    </div>
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ubuntu/">
+                        <span class="chip bg-color">ubuntu</span>
+                    </a>
+                    
+                    <a href="/tags/bugs/">
+                        <span class="chip bg-color">bugs</span>
+                    </a>
+                    
                 </div>
                 
             </div>
@@ -1269,7 +1333,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">726</span>&nbsp;字
+                class="white-color">12.4k</span>&nbsp;字
             
             
             
