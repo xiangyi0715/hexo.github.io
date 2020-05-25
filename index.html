@@ -543,6 +543,42 @@
                     
 
                     
+                        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/xiangyi0715/xiangyi0715.github.io/libs/dplayer/DPlayer.min.css">
+<div class="video-player">
+    
+    <div class="title center-align">
+        <i class="fas fa-video-camera"></i>&nbsp;&nbsp;風立ちぬ
+    </div>
+    
+    <div class="row">
+        <div class="col l8 offset-l2 m10 offset-m1 s12">
+            <div id="dplayer" class="dplayer-video"
+                     style="height: 400# 如：400px;"></div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/xiangyi0715/xiangyi0715.github.io/libs/dplayer/DPlayer.min.js"></script>
+<script>
+    $(function () {
+        new DPlayer({
+            container: document.getElementById('dplayer'),
+            autoplay: 'false' === 'true',
+            theme: '#42b983',
+            loop: 'false' === 'true',
+            lang: 'zh-CN' === 'zh-CN' ? 'zh-cn' : 'en',
+            preload: 'auto',
+            volume: Number('0.7'),
+            video: {
+                url: 'http://www.zanqianba.comhttp://www.zanqianba.com/xzb/video_1590407546.mp4?s=7jEyxZRbNUU3Wd8WZmWmKR9ZOrapj/Ywp9IYsNd9WtALxziew/PhzTCtDsKpzPOUMiGEAWMSBrH78QemIgHpWmvOJ0oRj2BqhxTv2vmvxAdXanLsFwmuwjUlQesaGYfE!lGoYEuD2nWxTj2KD9q10HoJzol8sZBnVm3C3qUodoWL9N5/YlKeJTGaEMURRWi/ONbQ35BJ16Iy6jnE0gZYvCIp9G1HxMesZXL!2vnNb87NwgdMlRfYjWd76bqBr7IEgSZxXGJ0E3q/K8sepc3uPmkncc1YcMeV5iSINC4nGy3cyA03zOXRmzTHWtV8EyydLPm4S6g8n9NwyaSQl4WHBSoaep24NIbnT8BT6Trp8npr9DJ6FUwqBJo48jcRnnntjwm28ko6UemYKqFY71zVATQ1MmYo8BKGPac5opdtBb5dnl1UpLHk8OOBOW9nRc5a/x744pC9E0jJC8jbtvl7rIgzNq2L6uzWeO/J97y7y9Q=# 必填',
+                pic: 'http://sf1-ttcdn-tos.pstatp.com/obj/tos-cn-p-0000/fd519c8bdb5d499190cdf7447fb1b8f6',
+                thumbnails: ''
+            }
+        });
+    });
+</script>
+
+                    
 
                     
                     <div id="recommend-sections" class="recommend">
