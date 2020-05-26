@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xiangyi0715.github.io/"/>
-  <updated>2020-05-24T07:11:03.543Z</updated>
+  <updated>2020-05-26T14:11:03.434Z</updated>
   <id>xiangyi0715.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Linux内核中makefile有什么作用？深入解析makefile工作过程和原理</title>
+    <link href="xiangyi0715.github.io/2020/05/26/linux-nei-he-zhong-makefile-you-shi-me-zuo-yong-shen-ru-jie-xi-makefile-gong-zuo-guo-cheng-he-yuan-li/"/>
+    <id>xiangyi0715.github.io/2020/05/26/linux-nei-he-zhong-makefile-you-shi-me-zuo-yong-shen-ru-jie-xi-makefile-gong-zuo-guo-cheng-he-yuan-li/</id>
+    <published>2020-05-26T14:11:03.530Z</published>
+    <updated>2020-05-26T14:11:03.434Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&amp;emsp;&amp;emsp;Linux内核中Makefile 的作用是根据配置的情况，构造出需要编译的源文件列表，然后分别编译，并把目标代码链接到一起，最终形成 linux 内核二进制文件。&lt;br&gt;&amp;emsp;&amp;emsp;由于 Linux 内核源代码是按照树形结构组织的，所以
+        
+      
+    
+    </summary>
+    
+    
+      <category term="转" scheme="xiangyi0715.github.io/categories/%E8%BD%AC/"/>
+    
+    
+      <category term="linux" scheme="xiangyi0715.github.io/tags/linux/"/>
+    
+      <category term="makefile" scheme="xiangyi0715.github.io/tags/makefile/"/>
+    
+      <category term="内核" scheme="xiangyi0715.github.io/tags/%E5%86%85%E6%A0%B8/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
