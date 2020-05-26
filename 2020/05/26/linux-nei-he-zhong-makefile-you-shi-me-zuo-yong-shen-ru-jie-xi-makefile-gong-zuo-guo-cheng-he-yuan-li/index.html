@@ -569,7 +569,10 @@
     $(CC) $(CFLAGS) -S $&lt; -o $@</code></pre><p>&emsp;&emsp;有很多子目录下都有同样的要求，就需要在各自的 Makefile 中包含此编译规则，这会比较麻烦。而 Linux 内核中则把此类的编译规则统一放置到 Rules.make 中，并在各自的 Makefile 中包含进了 Rules.make（include Rules.make），这样就避免了在多个 Makefile 中重复同样的规则。对于上面的例子，在 Rules.make 中对应的规则为：</p>
 <pre><code>%.s: %.c
     $(CC) $(CFLAGS) $(EXTRA_CFLAGS) $(CFLAGS_$(*F)) $(CFLAGS_$@) -S $&lt; -o $@</code></pre><h2 id="Makefile-中的变量"><a href="#Makefile-中的变量" class="headerlink" title="Makefile 中的变量"></a>Makefile 中的变量</h2><p>&emsp;&emsp;顶层 Makefile 定义并向环境中输出了许多变量，为各个子目录下的 Makefile 传递一些信息。有些变量，比如 SUBDIRS，不仅在顶层 Makefile 中定义并且赋初值，而且在 arch/*/Makefile 还作了扩充。</p>
-<h3 id="常用的变量有以下几类："><a href="#常用的变量有以下几类：" class="headerlink" title="常用的变量有以下几类："></a>常用的变量有以下几类：</h3><p>1） 版本信息<br>&emsp;&emsp;版本信息有：VERSION，PATCHLEVEL, SUBLEVEL, EXTRAVERSION，KERNELRELEASE。版本信息定义了当前内核的版本，比如 VERSION=2，PATCHLEVEL=4，SUBLEVEL=18，EXATAVERSION=-rmk7，它们共同构成内核的发行版本KERNELRELEASE：2.4.18-rmk7<br>2） CPU 体系结构：ARCH<br>&emsp;&emsp;在顶层 Makefile 的开头，用 ARCH 定义目标 CPU 的体系结构，比如 ARCH:=arm 等。许多子目录的 Makefile 中，要根据 ARCH 的定义选择编译源文件的列表。<br>3） 路径信息：TOPDIR, SUBDIRS<br>&emsp;&emsp;TOPDIR 定义了 Linux 内核源代码所在的根目录。例如，各个子目录下的 Makefile 通过 $(TOPDIR)/Rules.make 就可以找到 Rules.make 的位置。<br>&emsp;&emsp;SUBDIRS 定义了一个目录列表，在编译内核或模块时，顶层 Makefile 就是根据 SUBDIRS 来决定进入哪些子目录。SUBDIRS 的值取决于内核的配置，在顶层 Makefile 中 SUBDIRS 赋值为 kernel drivers mm fs net ipc lib;根据内核的配置情况，在 arch/*/Makefile 中扩充了 SUBDIRS的值，参见4)中的例子。<br>4） 内核组成信息：HEAD, CORE_FILES, NETWORKS, DRIVERS, LIBS<br>Linux 内核文件 vmlinux 是由以下规则产生的： </p>
+<h3 id="常用的变量有以下几类："><a href="#常用的变量有以下几类：" class="headerlink" title="常用的变量有以下几类："></a>常用的变量有以下几类：</h3><h4 id="1）-版本信息"><a href="#1）-版本信息" class="headerlink" title="1） 版本信息"></a>1） 版本信息</h4><p>&emsp;&emsp;版本信息有：VERSION，PATCHLEVEL, SUBLEVEL, EXTRAVERSION，KERNELRELEASE。版本信息定义了当前内核的版本，比如 VERSION=2，PATCHLEVEL=4，SUBLEVEL=18，EXATAVERSION=-rmk7，它们共同构成内核的发行版本KERNELRELEASE：2.4.18-rmk7</p>
+<h4 id="2）-CPU-体系结构：ARCH"><a href="#2）-CPU-体系结构：ARCH" class="headerlink" title="2） CPU 体系结构：ARCH"></a>2） CPU 体系结构：ARCH</h4><p>&emsp;&emsp;在顶层 Makefile 的开头，用 ARCH 定义目标 CPU 的体系结构，比如 ARCH:=arm 等。许多子目录的 Makefile 中，要根据 ARCH 的定义选择编译源文件的列表。</p>
+<h4 id="3）-路径信息：TOPDIR-SUBDIRS"><a href="#3）-路径信息：TOPDIR-SUBDIRS" class="headerlink" title="3） 路径信息：TOPDIR, SUBDIRS"></a>3） 路径信息：TOPDIR, SUBDIRS</h4><p>&emsp;&emsp;TOPDIR 定义了 Linux 内核源代码所在的根目录。例如，各个子目录下的 Makefile 通过 $(TOPDIR)/Rules.make 就可以找到 Rules.make 的位置。<br>&emsp;&emsp;SUBDIRS 定义了一个目录列表，在编译内核或模块时，顶层 Makefile 就是根据 SUBDIRS 来决定进入哪些子目录。SUBDIRS 的值取决于内核的配置，在顶层 Makefile 中 SUBDIRS 赋值为 kernel drivers mm fs net ipc lib;根据内核的配置情况，在 arch/*/Makefile 中扩充了 SUBDIRS的值，参见4)中的例子。</p>
+<h4 id="4）-内核组成信息：HEAD-CORE-FILES-NETWORKS-DRIVERS-LIBS"><a href="#4）-内核组成信息：HEAD-CORE-FILES-NETWORKS-DRIVERS-LIBS" class="headerlink" title="4） 内核组成信息：HEAD, CORE_FILES, NETWORKS, DRIVERS, LIBS"></a>4） 内核组成信息：HEAD, CORE_FILES, NETWORKS, DRIVERS, LIBS</h4><p>Linux 内核文件 vmlinux 是由以下规则产生的： </p>
 <pre><code>vmlinux: $(CONFIGURATION) init/main.o init/version.o linuxsubdirs
 $(LD) $(LINKFLAGS) $(HEAD) init/main.o init/version.o \
     --start-group \
@@ -581,7 +584,7 @@ $(LD) $(LINKFLAGS) $(HEAD) init/main.o init/version.o \
     -o vmlinux</code></pre><p>可以看出，vmlinux 是由 HEAD、main.o、version.o、CORE_FILES、DRIVERS、NETWORKS 和 LIBS 组成的。这些变量（如 HEAD）都是用来定义连接生成 vmlinux 的目标文件和库文件列表。其中，HEAD在arch/*/Makefile 中定义，用来确定被最先链接进 vmlinux 的文件列表。比如，对于 ARM 系列的 CPU，HEAD 定义为：</p>
 <pre><code>HEAD := arch/arm/kernel/head-$(PROCESSOR).o \
     arch/arm/kernel/init_task.o</code></pre><p>表明 head-$(PROCESSOR).o 和 init_task.o 需要最先被链接到 vmlinux 中。PROCESSOR 为 armv 或 armo，取决于目标 CPU。CORE_FILES，NETWORK，DRIVERS 和 LIBS 在顶层 Makefile 中定义，并且由 arch/*/Makefile 根据需要进行扩充。CORE_FILES 对应着内核的核心文件，有 kernel/kernel.o，mm/mm.o，fs/fs.o，ipc/ipc.o，可以看出，这些是组成内核最为重要的文件。同时，arch/arm/Makefile 对 CORE_FILES 进行了扩充：</p>
-<pre><code># arch/arm/Makefile
+<pre><code>    # arch/arm/Makefile
     # If we have a machine-specific directory, then include it in the build.
     MACHDIR         := arch/arm/mach-$(MACHINE)
     ifeq ($(MACHDIR),$(wildcard $(MACHDIR)))
@@ -592,15 +595,15 @@ $(LD) $(LINKFLAGS) $(HEAD) init/main.o init/version.o \
                        arch/arm/kernel/init_task.o
     SUBDIRS         += arch/arm/kernel arch/arm/mm arch/arm/lib arch/arm/nwfpe
     CORE_FILES      := arch/arm/kernel/kernel.o arch/arm/mm/mm.o $(CORE_FILES)
-    LIBS            := arch/arm/lib/lib.a $(LIBS)</code></pre><p>5） 编译信息：CPP, CC, AS, LD, AR，CFLAGS，LINKFLAGS<br>在 Rules.make 中定义的是编译的通用规则，具体到特定的场合，需要明确给出编译环境，编译环境就是在以上的变量中定义的。针对交叉编译的要求，定义了 CROSS_COMPILE。比如：  </p>
+    LIBS            := arch/arm/lib/lib.a $(LIBS)</code></pre><h4 id="5）-编译信息：CPP-CC-AS-LD-AR，CFLAGS，LINKFLAGS"><a href="#5）-编译信息：CPP-CC-AS-LD-AR，CFLAGS，LINKFLAGS" class="headerlink" title="5） 编译信息：CPP, CC, AS, LD, AR，CFLAGS，LINKFLAGS"></a>5） 编译信息：CPP, CC, AS, LD, AR，CFLAGS，LINKFLAGS</h4><p>在 Rules.make 中定义的是编译的通用规则，具体到特定的场合，需要明确给出编译环境，编译环境就是在以上的变量中定义的。针对交叉编译的要求，定义了 CROSS_COMPILE。比如：  </p>
 <pre><code>CROSS_COMPILE = arm-linux-
     CC = $(CROSS_COMPILE)gcc
     LD = $(CROSS_COMPILE)ld
     ......</code></pre><p>CROSS_COMPILE 定义了交叉编译器前缀 arm-linux-，表明所有的交叉编译工具都是以 arm-linux- 开头的，所以在各个交叉编译器工具之前，都加入了 $(CROSS_COMPILE)，以组成一个完整的交叉编译工具文件名，比如 arm-linux-gcc。<br>&emsp;&emsp;CFLAGS 定义了传递给 C 编译器的参数。<br>&emsp;&emsp;LINKFLAGS 是链接生成 vmlinux 时，由链接器使用的参数。LINKFLAGS 在 arm/*/Makefile 中定义，比如：  </p>
 <pre><code> # arch/arm/Makefile
-    LINKFLAGS :=-p -X -T arch/arm/vmlinux.lds</code></pre><p>6） 配置变量CONFIG_*<br>&emsp;&emsp;.config 文件中有许多的配置变量等式，用来说明用户配置的结果。例如 CONFIG_MODULES=y 表明用户选择了 Linux 内核的模块功能。<br>&emsp;&emsp;.config 被顶层 Makefile 包含后，就形成许多的配置变量，每个配置变量具有确定的值：y 表示本编译选项对应的内核代码被静态编译进 Linux 内核;m 表示本编译选项对应的内核代码被编译成模块;n 表示不选择此编译选项;如果根本就没有选择，那么配置变量的值为空。</p>
+    LINKFLAGS :=-p -X -T arch/arm/vmlinux.lds</code></pre><h4 id="6）-配置变量CONFIG"><a href="#6）-配置变量CONFIG" class="headerlink" title="6） 配置变量CONFIG_*"></a>6） 配置变量CONFIG_*</h4><p>&emsp;&emsp;.config 文件中有许多的配置变量等式，用来说明用户配置的结果。例如 CONFIG_MODULES=y 表明用户选择了 Linux 内核的模块功能。<br>&emsp;&emsp;.config 被顶层 Makefile 包含后，就形成许多的配置变量，每个配置变量具有确定的值：y 表示本编译选项对应的内核代码被静态编译进 Linux 内核;m 表示本编译选项对应的内核代码被编译成模块;n 表示不选择此编译选项;如果根本就没有选择，那么配置变量的值为空。</p>
 <h2 id="Rules-make-变量"><a href="#Rules-make-变量" class="headerlink" title="Rules.make 变量"></a>Rules.make 变量</h2><p>&emsp;&emsp;前面讲过，Rules.make 是编译规则文件，所有的 Makefile 中都会包括 Rules.make。Rules.make 文件定义了许多变量，最为重要是那些编译、链接列表变量。<br>&emsp;&emsp;O_OBJS，L_OBJS，OX_OBJS，LX_OBJS：本目录下需要编译进 Linux 内核 vmlinux 的目标文件列表，其中 OX_OBJS 和 LX_OBJS 中的 “X” 表明目标文件使用了 EXPORT_SYMBOL 输出符号。<br>&emsp;&emsp;M_OBJS，MX_OBJS：本目录下需要被编译成可装载模块的目标文件列表。同样，MX_OBJS 中的 “X” 表明目标文件使用了 EXPORT_SYMBOL 输出符号。<br>&emsp;&emsp;O_TARGET，L_TARGET：每个子目录下都有一个 O_TARGET 或 L_TARGET，Rules.make 首先从源代码编译生成 O_OBJS 和 OX_OBJS 中所有的目标文件，然后使用 $(LD) -r 把它们链接成一个 O_TARGET 或 L_TARGET。O_TARGET 以 .o 结尾，而 L_TARGET 以 .a 结尾。</p>
-<h3 id="子目录-Makefile"><a href="#子目录-Makefile" class="headerlink" title="子目录 Makefile"></a>子目录 Makefile</h3><p>&emsp;&emsp;子目录 Makefile 用来控制本级目录以下源代码的编译规则。我们通过一个例子来讲解子目录 Makefile 的组成：</p>
+<h2 id="子目录-Makefile"><a href="#子目录-Makefile" class="headerlink" title="子目录 Makefile"></a>子目录 Makefile</h2><p>&emsp;&emsp;子目录 Makefile 用来控制本级目录以下源代码的编译规则。我们通过一个例子来讲解子目录 Makefile 的组成：</p>
 <pre><code>#
     # Makefile for the linux kernel.
     #
