@@ -332,7 +332,18 @@
 
             <div class="description center-align">
                 
-                    
+                <span id="subtitle"></span>
+                <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                <script>
+                    var typed = new Typed("#subtitle", {
+                        strings: ['分析出理论 综合出技术',''],
+                        startDelay: 300,
+                        typeSpeed: 100,
+                        loop: true,
+                        backSpeed: 50,
+                        showCursor: true
+                    });
+                </script>
                 
             </div>
         </div>
@@ -621,7 +632,7 @@
         xAxis: [
             {
                 type: 'category',
-                data: ["诗句","linux","内核","内置","ubuntu","bugs","读书笔记","总结","makefile","Gridea"]
+                data: ["ChicUnique","linux","内核","内置","ubuntu","bugs","诗句","Gridea","makefile","主题"]
             }
         ],
         yAxis: [
