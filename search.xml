@@ -74,11 +74,11 @@
             
             <tag> 原创 </tag>
             
-            <tag> Gridea </tag>
+            <tag> gridea </tag>
             
-            <tag> ChicUnique </tag>
+            <tag> chic_unique </tag>
             
-            <tag> Theme </tag>
+            <tag> theme </tag>
             
         </tags>
       
@@ -159,13 +159,13 @@
       
         <tags>
             
+            <tag> qt </tag>
+            
             <tag> 原创 </tag>
             
             <tag> opencv </tag>
             
             <tag> windows </tag>
-            
-            <tag> Qt </tag>
             
             <tag> plate recognition </tag>
             
@@ -250,7 +250,7 @@
             
             <tag> 转载 </tag>
             
-            <tag> QT </tag>
+            <tag> qt </tag>
             
         </tags>
       
@@ -259,7 +259,7 @@
     
     
     <entry>
-      <title>关于 opencv 训练LBP联级分类器的傻瓜式操作</title>
+      <title>关于 Opencv 训练LBP联级分类器的傻瓜式操作</title>
       <link href="/posts/5c34.html"/>
       <url>/posts/5c34.html</url>
       
@@ -279,7 +279,7 @@
             
             <tag> opencv </tag>
             
-            <tag> LBP </tag>
+            <tag> lbp </tag>
             
         </tags>
       
@@ -304,11 +304,11 @@
       
         <tags>
             
-            <tag> QT </tag>
+            <tag> qt </tag>
             
             <tag> 原创 </tag>
             
-            <tag> Opencv </tag>
+            <tag> opencv </tag>
             
         </tags>
       

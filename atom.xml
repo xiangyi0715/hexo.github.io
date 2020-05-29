@@ -77,7 +77,7 @@
     <link href="xiangyi0715.github.io/posts/20c9.html"/>
     <id>xiangyi0715.github.io/posts/20c9.html</id>
     <published>2020-04-01T13:01:21.000Z</published>
-    <updated>2020-05-29T00:27:27.257Z</updated>
+    <updated>2020-05-29T03:22:11.158Z</updated>
     
     <summary type="html">
     
@@ -97,11 +97,11 @@
     
       <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
-      <category term="Gridea" scheme="xiangyi0715.github.io/tags/Gridea/"/>
+      <category term="gridea" scheme="xiangyi0715.github.io/tags/gridea/"/>
     
-      <category term="ChicUnique" scheme="xiangyi0715.github.io/tags/ChicUnique/"/>
+      <category term="chic_unique" scheme="xiangyi0715.github.io/tags/chic-unique/"/>
     
-      <category term="Theme" scheme="xiangyi0715.github.io/tags/Theme/"/>
+      <category term="theme" scheme="xiangyi0715.github.io/tags/theme/"/>
     
   </entry>
   
@@ -173,7 +173,7 @@
     <link href="xiangyi0715.github.io/posts/c5b3.html"/>
     <id>xiangyi0715.github.io/posts/c5b3.html</id>
     <published>2020-01-13T12:01:19.000Z</published>
-    <updated>2020-05-29T00:28:02.985Z</updated>
+    <updated>2020-05-29T03:19:36.378Z</updated>
     
     <summary type="html">
     
@@ -194,13 +194,13 @@
       <category term="笔记" scheme="xiangyi0715.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="qt" scheme="xiangyi0715.github.io/tags/qt/"/>
+    
       <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
       <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
     
       <category term="windows" scheme="xiangyi0715.github.io/tags/windows/"/>
-    
-      <category term="Qt" scheme="xiangyi0715.github.io/tags/Qt/"/>
     
       <category term="plate recognition" scheme="xiangyi0715.github.io/tags/plate-recognition/"/>
     
@@ -272,7 +272,7 @@
     <link href="xiangyi0715.github.io/posts/33d9.html"/>
     <id>xiangyi0715.github.io/posts/33d9.html</id>
     <published>2018-09-18T09:26:48.000Z</published>
-    <updated>2020-05-29T01:37:28.769Z</updated>
+    <updated>2020-05-29T03:22:38.978Z</updated>
     
     <summary type="html">
     
@@ -292,16 +292,16 @@
     
       <category term="转载" scheme="xiangyi0715.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
     
-      <category term="QT" scheme="xiangyi0715.github.io/tags/QT/"/>
+      <category term="qt" scheme="xiangyi0715.github.io/tags/qt/"/>
     
   </entry>
   
   <entry>
-    <title>关于 opencv 训练LBP联级分类器的傻瓜式操作</title>
+    <title>关于 Opencv 训练LBP联级分类器的傻瓜式操作</title>
     <link href="xiangyi0715.github.io/posts/5c34.html"/>
     <id>xiangyi0715.github.io/posts/5c34.html</id>
     <published>2018-04-13T07:48:09.000Z</published>
-    <updated>2020-05-29T03:15:37.594Z</updated>
+    <updated>2020-05-29T03:20:28.402Z</updated>
     
     <summary type="html">
     
@@ -323,7 +323,7 @@
     
       <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
     
-      <category term="LBP" scheme="xiangyi0715.github.io/tags/LBP/"/>
+      <category term="lbp" scheme="xiangyi0715.github.io/tags/lbp/"/>
     
   </entry>
   
@@ -332,7 +332,7 @@
     <link href="xiangyi0715.github.io/posts/3902.html"/>
     <id>xiangyi0715.github.io/posts/3902.html</id>
     <published>2017-12-25T11:59:08.000Z</published>
-    <updated>2020-05-29T02:10:22.865Z</updated>
+    <updated>2020-05-29T03:22:49.274Z</updated>
     
     <summary type="html">
     
@@ -350,11 +350,11 @@
       <category term="Qt" scheme="xiangyi0715.github.io/categories/Qt/"/>
     
     
-      <category term="QT" scheme="xiangyi0715.github.io/tags/QT/"/>
+      <category term="qt" scheme="xiangyi0715.github.io/tags/qt/"/>
     
       <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
-      <category term="Opencv" scheme="xiangyi0715.github.io/tags/Opencv/"/>
+      <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
     
   </entry>
   
