@@ -130,11 +130,11 @@
       
         <tags>
             
+            <tag> 原创 </tag>
+            
             <tag> 读书笔记 </tag>
             
             <tag> 总结 </tag>
-            
-            <tag> 原创 </tag>
             
         </tags>
       
@@ -219,11 +219,67 @@
       
         <tags>
             
-            <tag> 原创 </tag>
-            
             <tag> ubuntu </tag>
             
             <tag> Q&amp;A </tag>
+            
+            <tag> 原创 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Qt5.6之后与网页html/js的交互实现</title>
+      <link href="/posts/33d9.html"/>
+      <url>/posts/33d9.html</url>
+      
+        <content type="html"><![CDATA[<p>转发记录一下。。。<br>&emsp;&emsp;本篇文章主要讲解Qt5.6之后的QWebEngine与html或js的交互。在Qt5.6之前Qt窗体嵌入网页使用的是QWebKit但是Qt5.6将webkit去掉了，这时候很多人由于以前的项目中使用了QWebkit，而不想对Qt进行升级。</p><ul><li>Qt5.6之前Qt与html/js的交互方式</li><li>Qt5.6之后的交互方式</li><li>为什么要改变</li><li>改变之后的优点</li></ul><hr><h2 id="Qt5-6之前Qt与html-js的交互方式"><a href="#Qt5-6之前Qt与html-js的交互方式" class="headerlink" title="Qt5.6之前Qt与html/js的交互方式"></a>Qt5.6之前Qt与html/js的交互方式</h2><p>&emsp;&emsp;Qt5.6之前Qt加载html以及与网页的交互统统用的都是QWebkit，显示网页用的都是QWebView。具体的使用方式为：</p><ul><li><p>在Qt中加载页面</p><pre><code>  QWebView jsWebView;      jsWebView.load(QUrl(&quot;www.baidu.com&quot;));      //jsWebView.show(); 加入这行代码就可以看到窗体了</code></pre></li><li><p>在Qt中运行js对象</p><pre><code>  QVariant ret = jsWebView-&gt;page()-&gt;mainFrame()-    &gt;evaluateJavaScript(strParam);    //strparam是运行js函数可以带的参数  QString content = ret.toString();//查看运行结果</code></pre></li><li><p>js对象调用Qt的函数</p><pre><code>  //MainWindow 为注册的对象，为了能让js使用此对象  jsWebView-&gt;page()-&gt;mainFrame()-&gt;addToJavaScriptWindowObject(&quot;MainWindow&quot;,this);</code></pre><p>&emsp;&emsp;然后可以在js代码中使用MainWindow对象调用Qt的槽函数</p></li></ul><p>&emsp;&emsp;相信这种方法很多Qter已经掌握了。下面就来说一说Qt进入到5.6之后的调用方法</p><h2 id="Qt5-6调用js的方法"><a href="#Qt5-6调用js的方法" class="headerlink" title="Qt5.6调用js的方法"></a>Qt5.6调用js的方法</h2><p>&emsp;&emsp;Qt5.6之后不能使用QWebView了。代替它的是QWebEngineView。QWebEngineView的使用方式同QWebView基本一致。下面来看下代码</p><pre><code>    QWebEngineView ＊engine = new QWebEngineView(this);    connect(engine, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished(bool)));    engine-&gt;load(QUrl(QDir::currentPath() + &quot;socketio.html&quot;));        engine-&gt;show();</code></pre><blockquote><p>Qt5.6之后与js通信的重要类是：QWebChannel</p></blockquote><ul><li>交互的具体实现代码 </li></ul><p>1、Qt调用js的函数：</p><pre><code>     engine-&gt;page()-&gt;runJavaScript(strPusherURL,0,[](const QVariant &amp;var){qDebug() &lt;&lt; var.toString();});</code></pre><p>2、js中调用Qt的函数</p><pre><code>    QWebChannel ＊channel = new QWebChannel(engine-&gt;page());    channel-&gt;registerObject(QStringLiteral(&quot;MainWindow&quot;), this);    engine-&gt;page()-&gt;setWebChannel(channel);</code></pre><p>&emsp;&emsp;以上第二步方式能够让js使用Qt的对象，但是从js能够调用到具体的函数就得再下点功夫，并且是跟之前的版本完全不同的方法。 </p><ul><li>使用属性系统设置回调方法。</li></ul><p>具体的例子：</p><pre><code>     Q_PROPERTY(QString param1 READ objectName WRITE setContent)    Q_PROPERTY(QString param2 READ objectName WRITE setContent)</code></pre><p>&emsp;&emsp;以上方式就是设置了两个属性，这两个属性为js调用Qt函数setContent时的参数。<br>&emsp;&emsp;如果你的代码这样编写了，运行了，排除掉语法错误之后，编译器还是会报道一个错误的。 </p><blockquote><p>:-1: error: No rule to make target ../chatclient-html/qwebchannel.js’, needed byqwebchannel.js’. Stop.</p></blockquote><p>&emsp;&emsp;但是不要着急，这个文件时Qt通信需要带的文件，你可以打开creator的例子 搜索下QWebChannel，打开工程，打开工程文件你就可以找到这个js文件了。<br>&emsp;&emsp;如果你以前的代码用QWebKit方式编写的，要升级到5.6，其实很简单。 </p><blockquote><ol><li>加入QWebChannel </li><li>修改注册对象方式为：registerObject </li><li>使用属性系统设置回调方法以及回调的参数 </li><li>工程中加入qwebchannel.js文件</li></ol></blockquote><h2 id="Qt官方为什么要改变以及改变之后的优点"><a href="#Qt官方为什么要改变以及改变之后的优点" class="headerlink" title="Qt官方为什么要改变以及改变之后的优点"></a>Qt官方为什么要改变以及改变之后的优点</h2><blockquote><p>是官方的推荐方式，他可以很方便的实现C++和HTML/JS的双向通信，同时实现C++和HTML/JS的解耦，方便开发人员的分工及系统集成，参见后面的例子。<br>在QT5.5和QT5.6中，利用Qt的QtWebEngine和WebChannel模块，你完全可以进行本地桌面与web混合应用开发，你可以自由地混合JavaScript，样式表，Web内容和Qt组件。基于Chromium的<br>QtWebEngine是一个非常成熟的web浏览引擎。你可以在Ｃ++中执行JavaScript，或者在网页中集成Ｃ++对象，并且通过JavaScript和这些对象进行交互。</p></blockquote><blockquote><p>一个现代的ＨＴＭＬ渲染引擎只是混合开发的一半，另一半就是本地应用和渲染对象的交互。ＱＴ的Chromium的QtWebEngine集成提供了这种解决方案，当然目前还不是很完善。</p></blockquote><blockquote><p>从QT5.4开始就新增了QtWebChannel模块，该模块提供了在QML/C++和HTML/Javascript之间的一个简单、易用的桥接，从而使得开发能够使用Qt和Web技术进行混合开发，目前QT官方也推荐是用QtWebChannel来桥接C++和HTML，参见Qt<br>WebChannel–bridgingthegapbetweenC++/QMLandtheweb——<a href="https://www.youtube.com/watch?v=KnvnTi6XafA，这是2014年Qt开发者大会上的一段视屏演讲。" target="_blank" rel="noopener">https://www.youtube.com/watch?v=KnvnTi6XafA，这是2014年Qt开发者大会上的一段视屏演讲。</a></p></blockquote><blockquote><p>通过QtWebChannel能够实现C++/QML和HTML/javascript客户端之间进行无缝桥接，目前主要支持两种方式的桥接。</p></blockquote><blockquote><p>客户机可以是任何支持WebSockets的JavaScriptruntime机器和应用，客户机可以是独立的应用或浏览器。也就是说QtWebChannel是基于WebSockets协议之上。<br>通过IPC的方式实现C++/QML和HTML/javascript客户端之间进行通信。在QT应用内嵌入HTML或JS页面的情况下使用基于IPC的WebChannel通信效率更高效。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Qt </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 转载 </tag>
+            
+            <tag> QT </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>小记录：关于opencv3.X中的gauss滤波和图像类型转换</title>
+      <link href="/posts/3902.html"/>
+      <url>/posts/3902.html</url>
+      
+        <content type="html"><![CDATA[<p><strong>我的开发环境：</strong>windows下opencv3.2，QT4.8.6。<br><strong>遇到的问题是：</strong> <code>smooth = cvCreateImage(cvGetSize(iplImg),IPL_DEPTH_8U,1);                         cvSmooth(iplImg,smooth,CV_GAUSSIAN,3,0,0);</code><br><strong>所报错误为：</strong>OpenCV Error: Assertion failed (dst.size() == src.size() &amp;&amp; (smooth_type == CV_BLUR_NO_SCALE || dst.type() == src.type()))。程序执行后卡死退出，但是同样的代码在Linux中却可以执行。<br>&emsp;&emsp;应该不是申请内存那块。同样的方式做“灰度化”就没有问题。初步怀疑是编译器问题。同时也请看到这篇文章的大牛们回复具体讨论。<br>&emsp;&emsp;为了达到Gauss滤波的目的先用GaussianBlur函数代替cvSmooth平滑滤波，没有问题。</p><hr><p>&emsp;&emsp;opencv中的转换挺重要，2.X和3.X有的会有些差别,而且方法不局限一种。因为我的环境是QT，在这里对QImage Mat IplImage转换记录下：<br>    QImage—&gt;IplImage:</p><pre><code>QImage* img;IplImage *iplImg;int nChannel = 0;    nChannel = img-&gt;format();    qDebug()&lt;&lt;&quot;img format is:&quot;&lt;&lt;img-&gt;format();    if( nChannel==0 )    {        return;    }    else    {        iplImg=cvCreateImageHeader(cvSize(img-&gt;width(),img-&gt;height()),8,nChannel);        iplImg-&gt;imageData=(char*)img-&gt;bits();        if(nChannel==3)        {            cvConvertImage(iplImg,iplImg,CV_CVTIMG_SWAP_RB);        }</code></pre><p>IplImage—&gt;QImage: <a href="http://blog.sina.com.cn/s/blog_5c70dfc80100qzif.html" target="_blank" rel="noopener">摘自</a></p><pre><code>QImage* CjwIplToQImg(const IplImage *cvImg){if(!cvImg)return NULL;IplImage* temp=NULL;temp=cvCloneImage(cvImg);cvCvtColor(cvImg,temp,CV_BGR2RGB);uchar* imgData = (uchar*)(temp-&gt;imageData);QImage *qImg=new QImage(imgData,temp-&gt;width,temp-&gt;height,QImage::Format_RGB888);return qImg;cvReleaseImage(&amp;temp);delete imgData;}</code></pre><p>IplImage—&gt;Mat:</p><pre><code>  IplImage iplImg;  Mat matimg;    matimg = cvarrToMat(iplImg);</code></pre><p>Mat—&gt;IplImage:</p><pre><code>iplImg= IplImage(matimg);</code></pre><p>Mat—&gt;QImage:<a href="http://blog.csdn.net/wr132/article/details/54428144" target="_blank" rel="noopener">摘自</a></p><pre><code>QImage cvMat2QImage(const cv::Mat&amp; mat){    // 8-bits unsigned, NO. OF CHANNELS = 1    if(mat.type() == CV_8UC1)    {        QImage image(mat.cols, mat.rows, QImage::Format_Indexed8);        // Set the color table (used to translate colour indexes to qRgb values)        image.setNumColors(256);        for(int i = 0; i &lt; 256; i++)        {            image.setColor(i, qRgb(i, i, i));        }        // Copy input Mat        uchar *pSrc = mat.data;        for(int row = 0; row &lt; mat.rows; row ++)        {            uchar *pDest = image.scanLine(row);            memcpy(pDest, pSrc, mat.cols);            pSrc += mat.step;        }        return image;    }    // 8-bits unsigned, NO. OF CHANNELS = 3    else if(mat.type() == CV_8UC3)    {        // Copy input Mat        const uchar *pSrc = (const uchar*)mat.data;        // Create QImage with same dimensions as input Mat        QImage image(pSrc, mat.cols, mat.rows, mat.step, QImage::Format_RGB888);        return image.rgbSwapped();    }    else if(mat.type() == CV_8UC4)    {        // Copy input Mat        const uchar *pSrc = (const uchar*)mat.data;        // Create QImage with same dimensions as input Mat        QImage image(pSrc, mat.cols, mat.rows, mat.step, QImage::Format_ARGB32);        return image.copy();    }    else    {        return QImage();    }}</code></pre><p>QImage—&gt;Mat:<a href="http://blog.csdn.net/wr132/article/details/54428144" target="_blank" rel="noopener">摘自</a></p><pre><code>Mat QImage2cvMat(QImage image){    cv::Mat mat;    switch(image.format())    {    case QImage::Format_ARGB32:    case QImage::Format_RGB32:    case QImage::Format_ARGB32_Premultiplied:        mat = cv::Mat(image.height(), image.width(), CV_8UC4, (void*)image.bits(), image.bytesPerLine());        break;    case QImage::Format_RGB888:        mat = cv::Mat(image.height(), image.width(), CV_8UC3, (void*)image.bits(), image.bytesPerLine());        cv::cvtColor(mat, mat, CV_BGR2RGB);        break;    case QImage::Format_Indexed8:        mat = cv::Mat(image.height(), image.width(), CV_8UC1, (void*)image.bits(), image.bytesPerLine());        break;    }    return mat;}</code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> Qt </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> QT </tag>
+            
+            <tag> 原创 </tag>
+            
+            <tag> Opencv </tag>
             
         </tags>
       

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Linux内核中makefile有什么作用？深入解析makefile工作过程和原理, xiangyi">
+    <meta name="keywords" content="Qt5.6之后与网页html/js的交互实现, xiangyi">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Linux内核中makefile有什么作用？深入解析makefile工作过程和原理 | xiangyi</title>
+    <title>Qt5.6之后与网页html/js的交互实现 | xiangyi</title>
     <link rel="icon" type="image/png" href="/medias/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -356,12 +356,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2020/02/19/TVpeNKxw3ya5CFW.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Linux内核中makefile有什么作用？深入解析makefile工作过程和原理</h1>
+                    <h1 class="description center-align post-title">Qt5.6之后与网页html/js的交互实现</h1>
                 </div>
             </div>
         </div>
@@ -482,8 +482,8 @@
                                 <span class="chip bg-color">转载</span>
                             </a>
                         
-                            <a href="/tags/makefile/">
-                                <span class="chip bg-color">makefile</span>
+                            <a href="/tags/QT/">
+                                <span class="chip bg-color">QT</span>
                             </a>
                         
                     </div>
@@ -494,8 +494,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Linux/" class="post-category">
-                                Linux
+                            <a href="/categories/Qt/" class="post-category">
+                                Qt
                             </a>
                         
                     </div>
@@ -507,7 +507,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-05-26
+                    2018-09-18
                 </div>
                 
 
@@ -516,14 +516,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    10 分
+                    4 分
                 </div>
                 
 
@@ -538,69 +538,79 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>&emsp;&emsp;Linux内核中Makefile 的作用是根据配置的情况，构造出需要编译的源文件列表，然后分别编译，并把目标代码链接到一起，最终形成 linux 内核二进制文件。<br>&emsp;&emsp;由于 Linux 内核源代码是按照树形结构组织的，所以 Makefile 也被分布在目录树中。Linux 内核中的 Makefile 以及与 Makefile 直接相关的文件有：<br>    1. Makefile：顶层 Makefile，是整个内核配置、编译的总体控制文件。<br>    2. config：内核配置文件，包含由用户选择的配置选项，用来存放内核配置后的结果（如 make config）。<br>    3. arch/*/Makefile：位于各种 CPU 体系目录下的 Makefile，如 arch/arm/Makefile，是针对特定平台的 Makefile。<br>    4. 各个子目录下的 Makefile：比如 drivers/Makefile，负责所在子目录下源代码的管理。<br>    5. Rules.make：规则文件，被所有的 Makefile 使用。<br>&emsp;&emsp;用户通过 make config 配置后，产生了 .config。顶层 Makefile 读入 .config 中的配置选择。顶层 Makefile 有两个主要的任务：产生 vmlinux 文件和内核模块（module）。为了达到此目的，顶层 Makefile 递归的进入到内核的各个子目录中，分别调用位于这些子目录中的 Makefile。至于到底进入哪些子目录，取决于内核的配置。在顶层 Makefile 中，有一句：include arch/$(ARCH)/Makefile，包含了特定 CPU 体系结构下的 Makefile，这个 Makefile 中包含了平台相关的信息。<br>&emsp;&emsp;位于各个子目录下的 Makefile 同样也根据 .config 给出的配置信息，构造出当前配置下需要的源文件列表，并在文件的最后有 include $(TOPDIR)/Rules.make。<br>&emsp;&emsp;Rules.make 文件起着非常重要的作用，它定义了所有 Makefile 共用的编译规则。比如，如果需要将本目录下所有的 c 程序编译成汇编代码，需要在 Makefile 中有以下的编译规则：</p>
-<pre><code>%.s: %.c
-    $(CC) $(CFLAGS) -S $&lt; -o $@</code></pre><p>&emsp;&emsp;有很多子目录下都有同样的要求，就需要在各自的 Makefile 中包含此编译规则，这会比较麻烦。而 Linux 内核中则把此类的编译规则统一放置到 Rules.make 中，并在各自的 Makefile 中包含进了 Rules.make（include Rules.make），这样就避免了在多个 Makefile 中重复同样的规则。对于上面的例子，在 Rules.make 中对应的规则为：</p>
-<pre><code>%.s: %.c
-    $(CC) $(CFLAGS) $(EXTRA_CFLAGS) $(CFLAGS_$(*F)) $(CFLAGS_$@) -S $&lt; -o $@</code></pre><h2 id="Makefile-中的变量"><a href="#Makefile-中的变量" class="headerlink" title="Makefile 中的变量"></a>Makefile 中的变量</h2><p>&emsp;&emsp;顶层 Makefile 定义并向环境中输出了许多变量，为各个子目录下的 Makefile 传递一些信息。有些变量，比如 SUBDIRS，不仅在顶层 Makefile 中定义并且赋初值，而且在 arch/*/Makefile 还作了扩充。</p>
-<h3 id="常用的变量有以下几类："><a href="#常用的变量有以下几类：" class="headerlink" title="常用的变量有以下几类："></a>常用的变量有以下几类：</h3><h4 id="1）-版本信息"><a href="#1）-版本信息" class="headerlink" title="1） 版本信息"></a>1） 版本信息</h4><p>&emsp;&emsp;版本信息有：VERSION，PATCHLEVEL, SUBLEVEL, EXTRAVERSION，KERNELRELEASE。版本信息定义了当前内核的版本，比如 VERSION=2，PATCHLEVEL=4，SUBLEVEL=18，EXATAVERSION=-rmk7，它们共同构成内核的发行版本KERNELRELEASE：2.4.18-rmk7</p>
-<h4 id="2）-CPU-体系结构：ARCH"><a href="#2）-CPU-体系结构：ARCH" class="headerlink" title="2） CPU 体系结构：ARCH"></a>2） CPU 体系结构：ARCH</h4><p>&emsp;&emsp;在顶层 Makefile 的开头，用 ARCH 定义目标 CPU 的体系结构，比如 ARCH:=arm 等。许多子目录的 Makefile 中，要根据 ARCH 的定义选择编译源文件的列表。</p>
-<h4 id="3）-路径信息：TOPDIR-SUBDIRS"><a href="#3）-路径信息：TOPDIR-SUBDIRS" class="headerlink" title="3） 路径信息：TOPDIR, SUBDIRS"></a>3） 路径信息：TOPDIR, SUBDIRS</h4><p>&emsp;&emsp;TOPDIR 定义了 Linux 内核源代码所在的根目录。例如，各个子目录下的 Makefile 通过 $(TOPDIR)/Rules.make 就可以找到 Rules.make 的位置。<br>&emsp;&emsp;SUBDIRS 定义了一个目录列表，在编译内核或模块时，顶层 Makefile 就是根据 SUBDIRS 来决定进入哪些子目录。SUBDIRS 的值取决于内核的配置，在顶层 Makefile 中 SUBDIRS 赋值为 kernel drivers mm fs net ipc lib;根据内核的配置情况，在 arch/*/Makefile 中扩充了 SUBDIRS的值，参见4)中的例子。</p>
-<h4 id="4）-内核组成信息：HEAD-CORE-FILES-NETWORKS-DRIVERS-LIBS"><a href="#4）-内核组成信息：HEAD-CORE-FILES-NETWORKS-DRIVERS-LIBS" class="headerlink" title="4） 内核组成信息：HEAD, CORE_FILES, NETWORKS, DRIVERS, LIBS"></a>4） 内核组成信息：HEAD, CORE_FILES, NETWORKS, DRIVERS, LIBS</h4><p>Linux 内核文件 vmlinux 是由以下规则产生的： </p>
-<pre><code>vmlinux: $(CONFIGURATION) init/main.o init/version.o linuxsubdirs
-$(LD) $(LINKFLAGS) $(HEAD) init/main.o init/version.o \
-    --start-group \
-    x$(CORE_FILES) \
-    $(DRIVERS) \
-    $(NETWORKS) \
-    $(LIBS) \
-    --end-group \
-    -o vmlinux</code></pre><p>可以看出，vmlinux 是由 HEAD、main.o、version.o、CORE_FILES、DRIVERS、NETWORKS 和 LIBS 组成的。这些变量（如 HEAD）都是用来定义连接生成 vmlinux 的目标文件和库文件列表。其中，HEAD在arch/*/Makefile 中定义，用来确定被最先链接进 vmlinux 的文件列表。比如，对于 ARM 系列的 CPU，HEAD 定义为：</p>
-<pre><code>HEAD := arch/arm/kernel/head-$(PROCESSOR).o \
-    arch/arm/kernel/init_task.o</code></pre><p>表明 head-$(PROCESSOR).o 和 init_task.o 需要最先被链接到 vmlinux 中。PROCESSOR 为 armv 或 armo，取决于目标 CPU。CORE_FILES，NETWORK，DRIVERS 和 LIBS 在顶层 Makefile 中定义，并且由 arch/*/Makefile 根据需要进行扩充。CORE_FILES 对应着内核的核心文件，有 kernel/kernel.o，mm/mm.o，fs/fs.o，ipc/ipc.o，可以看出，这些是组成内核最为重要的文件。同时，arch/arm/Makefile 对 CORE_FILES 进行了扩充：</p>
-<pre><code>    # arch/arm/Makefile
-    # If we have a machine-specific directory, then include it in the build.
-    MACHDIR         := arch/arm/mach-$(MACHINE)
-    ifeq ($(MACHDIR),$(wildcard $(MACHDIR)))
-    SUBDIRS         += $(MACHDIR)
-    CORE_FILES      := $(MACHDIR)/$(MACHINE).o $(CORE_FILES)
-    endif
-    HEAD            := arch/arm/kernel/head-$(PROCESSOR).o \
-                       arch/arm/kernel/init_task.o
-    SUBDIRS         += arch/arm/kernel arch/arm/mm arch/arm/lib arch/arm/nwfpe
-    CORE_FILES      := arch/arm/kernel/kernel.o arch/arm/mm/mm.o $(CORE_FILES)
-    LIBS            := arch/arm/lib/lib.a $(LIBS)</code></pre><h4 id="5）-编译信息：CPP-CC-AS-LD-AR，CFLAGS，LINKFLAGS"><a href="#5）-编译信息：CPP-CC-AS-LD-AR，CFLAGS，LINKFLAGS" class="headerlink" title="5） 编译信息：CPP, CC, AS, LD, AR，CFLAGS，LINKFLAGS"></a>5） 编译信息：CPP, CC, AS, LD, AR，CFLAGS，LINKFLAGS</h4><p>在 Rules.make 中定义的是编译的通用规则，具体到特定的场合，需要明确给出编译环境，编译环境就是在以上的变量中定义的。针对交叉编译的要求，定义了 CROSS_COMPILE。比如：  </p>
-<pre><code>CROSS_COMPILE = arm-linux-
-    CC = $(CROSS_COMPILE)gcc
-    LD = $(CROSS_COMPILE)ld
-    ......</code></pre><p>CROSS_COMPILE 定义了交叉编译器前缀 arm-linux-，表明所有的交叉编译工具都是以 arm-linux- 开头的，所以在各个交叉编译器工具之前，都加入了 $(CROSS_COMPILE)，以组成一个完整的交叉编译工具文件名，比如 arm-linux-gcc。<br>&emsp;&emsp;CFLAGS 定义了传递给 C 编译器的参数。<br>&emsp;&emsp;LINKFLAGS 是链接生成 vmlinux 时，由链接器使用的参数。LINKFLAGS 在 arm/*/Makefile 中定义，比如：  </p>
-<pre><code> # arch/arm/Makefile
-    LINKFLAGS :=-p -X -T arch/arm/vmlinux.lds</code></pre><h4 id="6）-配置变量CONFIG"><a href="#6）-配置变量CONFIG" class="headerlink" title="6） 配置变量CONFIG_*"></a>6） 配置变量CONFIG_*</h4><p>&emsp;&emsp;.config 文件中有许多的配置变量等式，用来说明用户配置的结果。例如 CONFIG_MODULES=y 表明用户选择了 Linux 内核的模块功能。<br>&emsp;&emsp;.config 被顶层 Makefile 包含后，就形成许多的配置变量，每个配置变量具有确定的值：y 表示本编译选项对应的内核代码被静态编译进 Linux 内核;m 表示本编译选项对应的内核代码被编译成模块;n 表示不选择此编译选项;如果根本就没有选择，那么配置变量的值为空。</p>
-<h2 id="Rules-make-变量"><a href="#Rules-make-变量" class="headerlink" title="Rules.make 变量"></a>Rules.make 变量</h2><p>&emsp;&emsp;前面讲过，Rules.make 是编译规则文件，所有的 Makefile 中都会包括 Rules.make。Rules.make 文件定义了许多变量，最为重要是那些编译、链接列表变量。<br>&emsp;&emsp;O_OBJS，L_OBJS，OX_OBJS，LX_OBJS：本目录下需要编译进 Linux 内核 vmlinux 的目标文件列表，其中 OX_OBJS 和 LX_OBJS 中的 “X” 表明目标文件使用了 EXPORT_SYMBOL 输出符号。<br>&emsp;&emsp;M_OBJS，MX_OBJS：本目录下需要被编译成可装载模块的目标文件列表。同样，MX_OBJS 中的 “X” 表明目标文件使用了 EXPORT_SYMBOL 输出符号。<br>&emsp;&emsp;O_TARGET，L_TARGET：每个子目录下都有一个 O_TARGET 或 L_TARGET，Rules.make 首先从源代码编译生成 O_OBJS 和 OX_OBJS 中所有的目标文件，然后使用 $(LD) -r 把它们链接成一个 O_TARGET 或 L_TARGET。O_TARGET 以 .o 结尾，而 L_TARGET 以 .a 结尾。</p>
-<h2 id="子目录-Makefile"><a href="#子目录-Makefile" class="headerlink" title="子目录 Makefile"></a>子目录 Makefile</h2><p>&emsp;&emsp;子目录 Makefile 用来控制本级目录以下源代码的编译规则。我们通过一个例子来讲解子目录 Makefile 的组成：</p>
-<pre><code>#
-    # Makefile for the linux kernel.
-    #
-    # All of the (potential) objects that export symbols.
-    # This list comes from &#39;grep -l EXPORT_SYMBOL *.[hc]&#39;.
-    export-objs := tc.o
-    # Object file lists.
-    obj-y        :=
-    obj-m        :=
-    obj-n        :=
-    obj-         :=
-    obj-$(CONFIG_TC) += tc.o
-    obj-$(CONFIG_ZS) += zs.o
-    obj-$(CONFIG_VT) += lk201.o lk201-map.o lk201-remap.o
-    # Files that are both resident and modular: remove from modular.
-    obj-m        := $(filter-out $(obj-y), $(obj-m))
-    # Translate to Rules.make lists.
-    L_TARGET := tc.a
-    L_OBJS       := $(sort $(filter-out $(export-objs), $(obj-y)))
-    LX_OBJS      := $(sort $(filter     $(export-objs), $(obj-y)))
-    M_OBJS       := $(sort $(filter-out $(export-objs), $(obj-m)))
-    MX_OBJS      := $(sort $(filter     $(export-objs), $(obj-m)))
-    include $(TOPDIR)/Rules.make</code></pre><p>a) 注释<br>&emsp;&emsp;对 Makefile 的说明和解释，由#开始。<br>b) 编译目标定义<br>&emsp;&emsp;类似于 obj-$(CONFIG_TC) += tc.o 的语句是用来定义编译的目标，是子目录 Makefile 中最重要的部分。编译目标定义那些在本子目录下，需要编译到 Linux 内核中的目标文件列表。为了只在用户选择了此功能后才编译，所有的目标定义都融合了对配置变量的判断。<br>&emsp;&emsp;前面说过，每个配置变量取值范围是：y，n，m 和空，obj-$(CONFIG_TC) 分别对应着 obj-y，obj-n，obj-m，obj-。如果 CONFIG_TC 配置为 y，那么 tc.o 就进入了 obj-y 列表。obj-y 为包含到 Linux 内核 vmlinux 中的目标文件列表;obj-m 为编译成模块的目标文件列表;obj-n 和 obj- 中的文件列表被忽略。配置系统就根据这些列表的属性进行编译和链接。<br>&emsp;&emsp;export-objs 中的目标文件都使用了 EXPORT_SYMBOL() 定义了公共的符号，以便可装载模块使用。在 tc.c 文件的最后部分，有 “EXPORT_SYMBOL(search_tc_card);”，表明 tc.o 有符号输出。<br>&emsp;&emsp;这里需要指出的是，对于编译目标的定义，存在着两种格式，分别是老式定义和新式定义。老式定义就是前面 Rules.make 使用的那些变量，新式定义就是 obj-y，obj-m，obj-n 和 obj-。Linux 内核推荐使用新式定义，不过由于 Rules.make 不理解新式定义，需要在 Makefile 中的适配段将其转换成老式定义。<br>c) 适配段<br>&emsp;&emsp;适配段的作用是将新式定义转换成老式定义。在上面的例子中，适配段就是将 obj-y 和 obj-m 转换成 Rules.make 能够理解的 L_TARGET，L_OBJS，LX_OBJS，M_OBJS，MX_OBJS。<br>&emsp;&emsp;L_OBJS := $(sort $(filter-out $(export-objs), $(obj-y))) 定义了 L_OBJS 的生成方式：在 obj-y 的列表中过滤掉 export-objs(tc.o)，然后排序并去除重复的文件名。这里使用到了 GNU Make 的一些特殊功能，具体的含义可参考 Make 的文档(info make)。<br>d) include $(TOPDIR)/Rules.make</p>
+                <p>转发记录一下。。。<br>&emsp;&emsp;本篇文章主要讲解Qt5.6之后的QWebEngine与html或js的交互。在Qt5.6之前Qt窗体嵌入网页使用的是QWebKit但是Qt5.6将webkit去掉了，这时候很多人由于以前的项目中使用了QWebkit，而不想对Qt进行升级。</p>
+<ul>
+<li>Qt5.6之前Qt与html/js的交互方式</li>
+<li>Qt5.6之后的交互方式</li>
+<li>为什么要改变</li>
+<li>改变之后的优点</li>
+</ul>
+<hr>
+<h2 id="Qt5-6之前Qt与html-js的交互方式"><a href="#Qt5-6之前Qt与html-js的交互方式" class="headerlink" title="Qt5.6之前Qt与html/js的交互方式"></a>Qt5.6之前Qt与html/js的交互方式</h2><p>&emsp;&emsp;Qt5.6之前Qt加载html以及与网页的交互统统用的都是QWebkit，显示网页用的都是QWebView。具体的使用方式为：</p>
+<ul>
+<li><p>在Qt中加载页面</p>
+<pre><code>  QWebView jsWebView;
+      jsWebView.load(QUrl(&quot;www.baidu.com&quot;));
+      //jsWebView.show(); 加入这行代码就可以看到窗体了</code></pre></li>
+<li><p>在Qt中运行js对象</p>
+<pre><code>  QVariant ret = jsWebView-&gt;page()-&gt;mainFrame()-    &gt;evaluateJavaScript(strParam);    //strparam是运行js函数可以带的参数
+
+  QString content = ret.toString();//查看运行结果</code></pre></li>
+<li><p>js对象调用Qt的函数</p>
+<pre><code>  //MainWindow 为注册的对象，为了能让js使用此对象
+  jsWebView-&gt;page()-&gt;mainFrame()-&gt;addToJavaScriptWindowObject(&quot;MainWindow&quot;,this);</code></pre><p>&emsp;&emsp;然后可以在js代码中使用MainWindow对象调用Qt的槽函数</p>
+</li>
+</ul>
+<p>&emsp;&emsp;相信这种方法很多Qter已经掌握了。下面就来说一说Qt进入到5.6之后的调用方法</p>
+<h2 id="Qt5-6调用js的方法"><a href="#Qt5-6调用js的方法" class="headerlink" title="Qt5.6调用js的方法"></a>Qt5.6调用js的方法</h2><p>&emsp;&emsp;Qt5.6之后不能使用QWebView了。代替它的是QWebEngineView。QWebEngineView的使用方式同QWebView基本一致。下面来看下代码</p>
+<pre><code>    QWebEngineView ＊engine = new QWebEngineView(this);
+    connect(engine, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished(bool)));
+    engine-&gt;load(QUrl(QDir::currentPath() + &quot;socketio.html&quot;));
+
+        engine-&gt;show();</code></pre><blockquote>
+<p>Qt5.6之后与js通信的重要类是：QWebChannel</p>
+</blockquote>
+<ul>
+<li>交互的具体实现代码 </li>
+</ul>
+<p>1、Qt调用js的函数：</p>
+<pre><code>     engine-&gt;page()-&gt;runJavaScript(strPusherURL,0,[](const QVariant &amp;var){qDebug() &lt;&lt; var.toString();});</code></pre><p>2、js中调用Qt的函数</p>
+<pre><code>    QWebChannel ＊channel = new QWebChannel(engine-&gt;page());
+    channel-&gt;registerObject(QStringLiteral(&quot;MainWindow&quot;), this);
+    engine-&gt;page()-&gt;setWebChannel(channel);</code></pre><p>&emsp;&emsp;以上第二步方式能够让js使用Qt的对象，但是从js能够调用到具体的函数就得再下点功夫，并且是跟之前的版本完全不同的方法。 </p>
+<ul>
+<li>使用属性系统设置回调方法。</li>
+</ul>
+<p>具体的例子：</p>
+<pre><code>     Q_PROPERTY(QString param1 READ objectName WRITE setContent)
+    Q_PROPERTY(QString param2 READ objectName WRITE setContent)</code></pre><p>&emsp;&emsp;以上方式就是设置了两个属性，这两个属性为js调用Qt函数setContent时的参数。<br>&emsp;&emsp;如果你的代码这样编写了，运行了，排除掉语法错误之后，编译器还是会报道一个错误的。 </p>
+<blockquote>
+<p>:-1: error: No rule to make target ../chatclient-html/qwebchannel.js’, needed byqwebchannel.js’. Stop.</p>
+</blockquote>
+<p>&emsp;&emsp;但是不要着急，这个文件时Qt通信需要带的文件，你可以打开creator的例子 搜索下QWebChannel，打开工程，打开工程文件你就可以找到这个js文件了。<br>&emsp;&emsp;如果你以前的代码用QWebKit方式编写的，要升级到5.6，其实很简单。 </p>
+<blockquote>
+<ol>
+<li>加入QWebChannel </li>
+<li>修改注册对象方式为：registerObject </li>
+<li>使用属性系统设置回调方法以及回调的参数 </li>
+<li>工程中加入qwebchannel.js文件</li>
+</ol>
+</blockquote>
+<h2 id="Qt官方为什么要改变以及改变之后的优点"><a href="#Qt官方为什么要改变以及改变之后的优点" class="headerlink" title="Qt官方为什么要改变以及改变之后的优点"></a>Qt官方为什么要改变以及改变之后的优点</h2><blockquote>
+<p>是官方的推荐方式，他可以很方便的实现C++和HTML/JS的双向通信，同时实现C++和HTML/JS的解耦，方便开发人员的分工及系统集成，参见后面的例子。<br>在QT5.5和QT5.6中，利用Qt的QtWebEngine和WebChannel模块，你完全可以进行本地桌面与web混合应用开发，你可以自由地混合JavaScript，样式表，Web内容和Qt组件。基于Chromium的<br>QtWebEngine是一个非常成熟的web浏览引擎。你可以在Ｃ++中执行JavaScript，或者在网页中集成Ｃ++对象，并且通过JavaScript和这些对象进行交互。</p>
+</blockquote>
+<blockquote>
+<p>一个现代的ＨＴＭＬ渲染引擎只是混合开发的一半，另一半就是本地应用和渲染对象的交互。ＱＴ的Chromium的QtWebEngine集成提供了这种解决方案，当然目前还不是很完善。</p>
+</blockquote>
+<blockquote>
+<p>从QT5.4开始就新增了QtWebChannel模块，该模块提供了在QML/C++和HTML/Javascript之间的一个简单、易用的桥接，从而使得开发能够使用Qt和Web技术进行混合开发，目前QT官方也推荐是用QtWebChannel来桥接C++和HTML，参见Qt<br>WebChannel–bridgingthegapbetweenC++/QMLandtheweb——<a href="https://www.youtube.com/watch?v=KnvnTi6XafA，这是2014年Qt开发者大会上的一段视屏演讲。" target="_blank" rel="noopener">https://www.youtube.com/watch?v=KnvnTi6XafA，这是2014年Qt开发者大会上的一段视屏演讲。</a></p>
+</blockquote>
+<blockquote>
+<p>通过QtWebChannel能够实现C++/QML和HTML/javascript客户端之间进行无缝桥接，目前主要支持两种方式的桥接。</p>
+</blockquote>
+<blockquote>
+<p>客户机可以是任何支持WebSockets的JavaScriptruntime机器和应用，客户机可以是独立的应用或浏览器。也就是说QtWebChannel是基于WebSockets协议之上。<br>通过IPC的方式实现C++/QML和HTML/javascript客户端之间进行通信。在QT应用内嵌入HTML或JS页面的情况下使用基于IPC的WebChannel通信效率更高效。</p>
+</blockquote>
 
             </div>
             <hr/>
@@ -626,7 +636,7 @@ $(LD) $(LINKFLAGS) $(HEAD) init/main.o init/version.o \
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="xiangyi0715.github.io/posts/fe83.html">xiangyi0715.github.io/posts/fe83.html</a>
+                    <a href="xiangyi0715.github.io/posts/33d9.html">xiangyi0715.github.io/posts/33d9.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -668,8 +678,8 @@ $(LD) $(LINKFLAGS) $(HEAD) init/main.o init/version.o \
                                     <span class="chip bg-color">转载</span>
                                 </a>
                             
-                                <a href="/tags/makefile/">
-                                    <span class="chip bg-color">makefile</span>
+                                <a href="/tags/QT/">
+                                    <span class="chip bg-color">QT</span>
                                 </a>
                             
                         </div>
@@ -1104,31 +1114,31 @@ $(LD) $(LINKFLAGS) $(HEAD) init/main.o init/version.o \
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/3eeb.html">
+                <a href="/posts/8192.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="ubuntu中遇到的小问题汇总(不定期更新)">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">ubuntu中遇到的小问题汇总(不定期更新)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hex
+                            👉问题一：(dpkg问题)出现E: Sub-process /usr/bin/dpkg returned an error code当使用apt-get安装软件时有时会发生类似于Errors were encountered while 
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-05-29
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-04
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E5%86%85%E7%BD%AE/" class="post-category">
-                                    内置
+                            <a href="/categories/Linux/" class="post-category">
+                                    Linux
                                 </a>
                             
                             
@@ -1138,8 +1148,16 @@ $(LD) $(LINKFLAGS) $(HEAD) init/main.o init/version.o \
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%86%85%E7%BD%AE/">
-                        <span class="chip bg-color">内置</span>
+                    <a href="/tags/ubuntu/">
+                        <span class="chip bg-color">ubuntu</span>
+                    </a>
+                    
+                    <a href="/tags/Q-A/">
+                        <span class="chip bg-color">Q&amp;A</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8E%9F%E5%88%9B/">
+                        <span class="chip bg-color">原创</span>
                     </a>
                     
                 </div>
@@ -1153,32 +1171,32 @@ $(LD) $(LINKFLAGS) $(HEAD) init/main.o init/version.o \
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/posts/20c9.html">
+                <a href="/posts/3902.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="关于Gridea主题——ChicUnique">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="小记录：关于opencv3.X中的gauss滤波和图像类型转换">
                         
-                        <span class="card-title">关于Gridea主题——ChicUnique</span>
+                        <span class="card-title">小记录：关于opencv3.X中的gauss滤波和图像类型转换</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            🌻Gridea-Chic-Unique这个主题由ITJoker233的Gridea-theme-Chic做更改，适合个人使用。本主题只做到能用即可。名称由来：Chic—优雅；Unique—独特。
-预览 我的主页🎯原Chic主题已有功能与
+                            我的开发环境：windows下opencv3.2，QT4.8.6。遇到的问题是： smooth = cvCreateImage(cvGetSize(iplImg),IPL_DEPTH_8U,1);   
+                  
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-01
+                                <i class="far fa-clock fa-fw icon-date"></i>2017-12-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
-                                    笔记
+                            <a href="/categories/Qt/" class="post-category">
+                                    Qt
                                 </a>
                             
                             
@@ -1188,20 +1206,16 @@ $(LD) $(LINKFLAGS) $(HEAD) init/main.o init/version.o \
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/QT/">
+                        <span class="chip bg-color">QT</span>
+                    </a>
+                    
                     <a href="/tags/%E5%8E%9F%E5%88%9B/">
                         <span class="chip bg-color">原创</span>
                     </a>
                     
-                    <a href="/tags/Gridea/">
-                        <span class="chip bg-color">Gridea</span>
-                    </a>
-                    
-                    <a href="/tags/ChicUnique/">
-                        <span class="chip bg-color">ChicUnique</span>
-                    </a>
-                    
-                    <a href="/tags/Theme/">
-                        <span class="chip bg-color">Theme</span>
+                    <a href="/tags/Opencv/">
+                        <span class="chip bg-color">Opencv</span>
                     </a>
                     
                 </div>

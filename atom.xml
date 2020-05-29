@@ -20,7 +20,7 @@
     <title>Hello World</title>
     <link href="xiangyi0715.github.io/posts/3eeb.html"/>
     <id>xiangyi0715.github.io/posts/3eeb.html</id>
-    <published>2020-05-27T01:22:04.202Z</published>
+    <published>2020-05-29T02:06:53.317Z</published>
     <updated>2020-05-27T01:22:04.202Z</updated>
     
     <summary type="html">
@@ -160,11 +160,11 @@
       <category term="笔记" scheme="xiangyi0715.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
       <category term="读书笔记" scheme="xiangyi0715.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
       <category term="总结" scheme="xiangyi0715.github.io/tags/%E6%80%BB%E7%BB%93/"/>
-    
-      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
   </entry>
   
@@ -259,11 +259,71 @@
       <category term="Linux" scheme="xiangyi0715.github.io/categories/Linux/"/>
     
     
-      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
-    
       <category term="ubuntu" scheme="xiangyi0715.github.io/tags/ubuntu/"/>
     
       <category term="Q&amp;A" scheme="xiangyi0715.github.io/tags/Q-A/"/>
+    
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Qt5.6之后与网页html/js的交互实现</title>
+    <link href="xiangyi0715.github.io/posts/33d9.html"/>
+    <id>xiangyi0715.github.io/posts/33d9.html</id>
+    <published>2018-09-18T09:26:48.000Z</published>
+    <updated>2020-05-29T01:37:28.769Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;转发记录一下。。。&lt;br&gt;&amp;emsp;&amp;emsp;本篇文章主要讲解Qt5.6之后的QWebEngine与html或js的交互。在Qt5.6之前Qt窗体嵌入网页使用的是QWebKit但是Qt5.6将webkit去掉了，这时候很多人由于以前的项目中使用了QWebkit，而不想对
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Qt" scheme="xiangyi0715.github.io/categories/Qt/"/>
+    
+    
+      <category term="转载" scheme="xiangyi0715.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
+    
+      <category term="QT" scheme="xiangyi0715.github.io/tags/QT/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>小记录：关于opencv3.X中的gauss滤波和图像类型转换</title>
+    <link href="xiangyi0715.github.io/posts/3902.html"/>
+    <id>xiangyi0715.github.io/posts/3902.html</id>
+    <published>2017-12-25T11:59:08.000Z</published>
+    <updated>2020-05-29T02:10:22.865Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;strong&gt;我的开发环境：&lt;/strong&gt;windows下opencv3.2，QT4.8.6。&lt;br&gt;&lt;strong&gt;遇到的问题是：&lt;/strong&gt; &lt;code&gt;smooth =
+        
+      
+    
+    </summary>
+    
+    
+      <category term="Qt" scheme="xiangyi0715.github.io/categories/Qt/"/>
+    
+    
+      <category term="QT" scheme="xiangyi0715.github.io/tags/QT/"/>
+    
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+      <category term="Opencv" scheme="xiangyi0715.github.io/tags/Opencv/"/>
     
   </entry>
   
