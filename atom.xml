@@ -48,7 +48,7 @@
     <link href="xiangyi0715.github.io/posts/fe83.html"/>
     <id>xiangyi0715.github.io/posts/fe83.html</id>
     <published>2020-05-26T13:42:35.000Z</published>
-    <updated>2020-05-27T01:22:04.202Z</updated>
+    <updated>2020-05-29T00:15:08.861Z</updated>
     
     <summary type="html">
     
@@ -63,14 +63,12 @@
     </summary>
     
     
-      <category term="转" scheme="xiangyi0715.github.io/categories/%E8%BD%AC/"/>
+      <category term="Linux" scheme="xiangyi0715.github.io/categories/Linux/"/>
     
     
-      <category term="linux" scheme="xiangyi0715.github.io/tags/linux/"/>
+      <category term="转载" scheme="xiangyi0715.github.io/tags/%E8%BD%AC%E8%BD%BD/"/>
     
       <category term="makefile" scheme="xiangyi0715.github.io/tags/makefile/"/>
-    
-      <category term="内核" scheme="xiangyi0715.github.io/tags/%E5%86%85%E6%A0%B8/"/>
     
   </entry>
   
@@ -79,7 +77,7 @@
     <link href="xiangyi0715.github.io/posts/20c9.html"/>
     <id>xiangyi0715.github.io/posts/20c9.html</id>
     <published>2020-04-01T13:01:21.000Z</published>
-    <updated>2020-05-27T01:22:04.226Z</updated>
+    <updated>2020-05-29T00:27:27.257Z</updated>
     
     <summary type="html">
     
@@ -94,14 +92,16 @@
     </summary>
     
     
-      <category term="原" scheme="xiangyi0715.github.io/categories/%E5%8E%9F/"/>
+      <category term="笔记" scheme="xiangyi0715.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
+    
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
       <category term="Gridea" scheme="xiangyi0715.github.io/tags/Gridea/"/>
     
       <category term="ChicUnique" scheme="xiangyi0715.github.io/tags/ChicUnique/"/>
     
-      <category term="主题" scheme="xiangyi0715.github.io/tags/%E4%B8%BB%E9%A2%98/"/>
+      <category term="Theme" scheme="xiangyi0715.github.io/tags/Theme/"/>
     
   </entry>
   
@@ -110,7 +110,7 @@
     <link href="xiangyi0715.github.io/posts/12bb.html"/>
     <id>xiangyi0715.github.io/posts/12bb.html</id>
     <published>2020-02-23T02:02:03.000Z</published>
-    <updated>2020-05-27T01:22:04.226Z</updated>
+    <updated>2020-05-29T00:25:10.057Z</updated>
     
     <summary type="html">
     
@@ -125,8 +125,10 @@
     </summary>
     
     
-      <category term="原" scheme="xiangyi0715.github.io/categories/%E5%8E%9F/"/>
+      <category term="英语" scheme="xiangyi0715.github.io/categories/%E8%8B%B1%E8%AF%AD/"/>
     
+    
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
       <category term="英语口语" scheme="xiangyi0715.github.io/tags/%E8%8B%B1%E8%AF%AD%E5%8F%A3%E8%AF%AD/"/>
     
@@ -137,7 +139,7 @@
     <link href="xiangyi0715.github.io/posts/2ae8.html"/>
     <id>xiangyi0715.github.io/posts/2ae8.html</id>
     <published>2020-01-27T05:52:11.000Z</published>
-    <updated>2020-05-27T01:22:04.226Z</updated>
+    <updated>2020-05-29T00:28:34.377Z</updated>
     
     <summary type="html">
     
@@ -155,12 +157,14 @@
     </summary>
     
     
-      <category term="原" scheme="xiangyi0715.github.io/categories/%E5%8E%9F/"/>
+      <category term="笔记" scheme="xiangyi0715.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
       <category term="读书笔记" scheme="xiangyi0715.github.io/tags/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"/>
     
       <category term="总结" scheme="xiangyi0715.github.io/tags/%E6%80%BB%E7%BB%93/"/>
+    
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
   </entry>
   
@@ -169,7 +173,7 @@
     <link href="xiangyi0715.github.io/posts/c5b3.html"/>
     <id>xiangyi0715.github.io/posts/c5b3.html</id>
     <published>2020-01-13T12:01:19.000Z</published>
-    <updated>2020-05-27T01:22:04.226Z</updated>
+    <updated>2020-05-29T00:28:02.985Z</updated>
     
     <summary type="html">
     
@@ -187,8 +191,10 @@
     </summary>
     
     
-      <category term="原" scheme="xiangyi0715.github.io/categories/%E5%8E%9F/"/>
+      <category term="笔记" scheme="xiangyi0715.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
+    
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
       <category term="windows" scheme="xiangyi0715.github.io/tags/windows/"/>
     
@@ -196,7 +202,7 @@
     
       <category term="Qt" scheme="xiangyi0715.github.io/tags/Qt/"/>
     
-      <category term="车牌识别" scheme="xiangyi0715.github.io/tags/%E8%BD%A6%E7%89%8C%E8%AF%86%E5%88%AB/"/>
+      <category term="plate recognition" scheme="xiangyi0715.github.io/tags/plate-recognition/"/>
     
   </entry>
   
@@ -205,7 +211,7 @@
     <link href="xiangyi0715.github.io/posts/1667.html"/>
     <id>xiangyi0715.github.io/posts/1667.html</id>
     <published>2020-01-04T16:00:00.000Z</published>
-    <updated>2020-05-27T01:22:04.226Z</updated>
+    <updated>2020-05-29T00:26:55.937Z</updated>
     
     <summary type="html">
     
@@ -224,7 +230,9 @@
       <category term="短句" scheme="xiangyi0715.github.io/categories/%E7%9F%AD%E5%8F%A5/"/>
     
     
-      <category term="诗句" scheme="xiangyi0715.github.io/tags/%E8%AF%97%E5%8F%A5/"/>
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+      <category term="short sentence" scheme="xiangyi0715.github.io/tags/short-sentence/"/>
     
   </entry>
   
@@ -233,7 +241,7 @@
     <link href="xiangyi0715.github.io/posts/8192.html"/>
     <id>xiangyi0715.github.io/posts/8192.html</id>
     <published>2020-01-03T16:00:00.000Z</published>
-    <updated>2020-05-27T01:22:04.202Z</updated>
+    <updated>2020-05-29T00:26:08.921Z</updated>
     
     <summary type="html">
     
@@ -248,12 +256,14 @@
     </summary>
     
     
-      <category term="原" scheme="xiangyi0715.github.io/categories/%E5%8E%9F/"/>
+      <category term="Linux" scheme="xiangyi0715.github.io/categories/Linux/"/>
     
+    
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
       <category term="ubuntu" scheme="xiangyi0715.github.io/tags/ubuntu/"/>
     
-      <category term="bugs" scheme="xiangyi0715.github.io/tags/bugs/"/>
+      <category term="Q&amp;A" scheme="xiangyi0715.github.io/tags/Q-A/"/>
     
   </entry>
   

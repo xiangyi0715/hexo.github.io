@@ -38,18 +38,16 @@
       
       <categories>
           
-          <category> 转 </category>
+          <category> Linux </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> linux </tag>
+            <tag> 转载 </tag>
             
             <tag> makefile </tag>
-            
-            <tag> 内核 </tag>
             
         </tags>
       
@@ -67,18 +65,20 @@
       
       <categories>
           
-          <category> 原 </category>
+          <category> 笔记 </category>
           
       </categories>
       
       
         <tags>
             
+            <tag> 原创 </tag>
+            
             <tag> Gridea </tag>
             
             <tag> ChicUnique </tag>
             
-            <tag> 主题 </tag>
+            <tag> Theme </tag>
             
         </tags>
       
@@ -96,12 +96,14 @@
       
       <categories>
           
-          <category> 原 </category>
+          <category> 英语 </category>
           
       </categories>
       
       
         <tags>
+            
+            <tag> 原创 </tag>
             
             <tag> 英语口语 </tag>
             
@@ -121,7 +123,7 @@
       
       <categories>
           
-          <category> 原 </category>
+          <category> 笔记 </category>
           
       </categories>
       
@@ -131,6 +133,8 @@
             <tag> 读书笔记 </tag>
             
             <tag> 总结 </tag>
+            
+            <tag> 原创 </tag>
             
         </tags>
       
@@ -148,12 +152,14 @@
       
       <categories>
           
-          <category> 原 </category>
+          <category> 笔记 </category>
           
       </categories>
       
       
         <tags>
+            
+            <tag> 原创 </tag>
             
             <tag> windows </tag>
             
@@ -161,7 +167,7 @@
             
             <tag> Qt </tag>
             
-            <tag> 车牌识别 </tag>
+            <tag> plate recognition </tag>
             
         </tags>
       
@@ -186,7 +192,9 @@
       
         <tags>
             
-            <tag> 诗句 </tag>
+            <tag> 原创 </tag>
+            
+            <tag> short sentence </tag>
             
         </tags>
       
@@ -204,16 +212,18 @@
       
       <categories>
           
-          <category> 原 </category>
+          <category> Linux </category>
           
       </categories>
       
       
         <tags>
             
+            <tag> 原创 </tag>
+            
             <tag> ubuntu </tag>
             
-            <tag> bugs </tag>
+            <tag> Q&amp;A </tag>
             
         </tags>
       
