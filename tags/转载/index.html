@@ -417,20 +417,20 @@
                 </a>
                 
                 
-                <a href="/tags/makefile/" title="makefile: 1">
+                <a href="/tags/qt/" title="qt: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="makefile" style="background-color: #F5EEF8;">makefile
-                        <span class="tag-length">1</span>
+                            data-tagname="qt" style="background-color: #F5EEF8;">qt
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 
                 
-                <a href="/tags/qt/" title="qt: 3">
+                <a href="/tags/makefile/" title="makefile: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            data-tagname="qt" style="background-color: #D5F5E3;">qt
-                        <span class="tag-length">3</span>
+                            data-tagname="makefile" style="background-color: #D5F5E3;">makefile
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
@@ -811,6 +811,25 @@ var _hmt = _hmt || [];
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
-</body>
+
+        <script src="//cdn.jsdelivr.net/npm/js-base64/base64.min.js"></script>
+        <script>
+        $('a').each(function() {
+          const $this = $(this);
+          const href = $this.attr('href');
+          if (href && href.match('^((http|https|thunder|qqdl|ed2k|Flashget|qbrowser|ftp|rtsp|mms)://)')) {
+            const strs = href.split('/');
+            if (strs.length >= 3) {
+                const host = strs[2];
+                if (host !== 'http://vq2uk7.coding-pages.com/' || window.location.host) {
+                    $this.attr('href', '/go.html?u='+Base64.encode(href)+'').attr('rel', 'external nofollow noopener noreferrer');
+                    if (true) {
+                        $this.attr('target', '_blank');
+                    }
+                }
+            }
+          }
+        });
+        </script></body>
 
 </html>
