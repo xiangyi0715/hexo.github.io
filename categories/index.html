@@ -409,19 +409,19 @@
                 
                 
                 
-                <a href="/categories/Qt/" title="Qt: 2">
+                <a href="/categories/Linux/" title="Linux: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F9EBEA;">Qt
+                            style="background-color: #F9EBEA;">Linux
                         <span class="tag-length">2</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/Linux/" title="Linux: 2">
+                <a href="/categories/Qt/" title="Qt: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F5EEF8;">Linux
+                            style="background-color: #F5EEF8;">Qt
                         <span class="tag-length">2</span>
                     </span>
                 </a>
@@ -436,20 +436,20 @@
                 </a>
                 
                 
-                <a href="/categories/%E7%AC%94%E8%AE%B0/" title="笔记: 3">
+                <a href="/categories/%E7%9F%AD%E5%8F%A5/" title="短句: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #E8F8F5;">笔记
-                        <span class="tag-length">3</span>
+                            style="background-color: #E8F8F5;">短句
+                        <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/%E7%9F%AD%E5%8F%A5/" title="短句: 1">
+                <a href="/categories/%E7%AC%94%E8%AE%B0/" title="笔记: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #FEF9E7;">短句
-                        <span class="tag-length">1</span>
+                            style="background-color: #FEF9E7;">笔记
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 
@@ -514,7 +514,7 @@
                     color: '#3C4858'
                 }
             },
-            indicator: [{"name":"Qt","max":4},{"name":"Linux","max":4},{"name":"内置","max":4},{"name":"笔记","max":4},{"name":"短句","max":4},{"name":"Opencv","max":4},{"name":"英语","max":4}],
+            indicator: [{"name":"Linux","max":4},{"name":"Qt","max":4},{"name":"内置","max":4},{"name":"短句","max":4},{"name":"笔记","max":4},{"name":"Opencv","max":4},{"name":"英语","max":4}],
             nameGap: 5,
             center: ['50%','55%'],
             radius: '66%'
@@ -525,7 +525,7 @@
             itemStyle: {normal: {areaStyle: {type: 'default'}}},
             data : [
                 {
-                    value : [2,2,1,3,1,1,1],
+                    value : [2,2,1,1,3,1,1],
                     name : '文章分类数量'
                 }
             ]
@@ -712,7 +712,7 @@ var _hmt = _hmt || [];
             const strs = href.split('/');
             if (strs.length >= 3) {
                 const host = strs[2];
-                if (host !== 'http://vq2uk7.coding-pages.com/' || window.location.host) {
+                if (host !== 'your_domain' || window.location.host) {
                     $this.attr('href', '/go.html?u='+Base64.encode(href)+'').attr('rel', 'external nofollow noopener noreferrer');
                     if (true) {
                         $this.attr('target', '_blank');
