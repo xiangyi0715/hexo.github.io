@@ -758,9 +758,34 @@
         width: 210px;
         height: 210px;
     }
+    .wpac-rating {
+        position: absolute;
+        right: 0px;
+        width: 300px;
+        border: 3px solid #73AD21;
+        padding: 10px;
+    }
+
 </style>
 
+<div id="wpac-rating"></div>
+<script type="text/javascript">
+wpac_init = window.wpac_init || [];
+wpac_init.push({widget: 'Rating', id: 25443});
+(function() {
+    if ('WIDGETPACK_LOADED' in window) return;
+    WIDGETPACK_LOADED = true;
+    var mc = document.createElement('script');
+    mc.type = 'text/javascript';
+    mc.async = true;
+    mc.src = 'https://embed.widgetpack.com/widget.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+})();
+</script>
+
+
 <div id="reward">
+
     <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
 
     <!-- Modal Structure -->
@@ -816,7 +841,7 @@
 
     #vcomments textarea {
         box-sizing: border-box;
-        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+        background: url("/medias/comment_bg.gif") 100% 100% no-repeat;
     }
 
     #vcomments p {
