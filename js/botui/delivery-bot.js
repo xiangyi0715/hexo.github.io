@@ -11,7 +11,7 @@ botui.message.bot({
 }).then(function() {
     return botui.message.bot({
         delay: 1500,
-        content: "这个网站分为前院与后院,Warning...你已经闯入后院"
+        content: "这个网站分为前院与后院,Warning...已闯入后院"
     })
 }).then(function() {
     return botui.action.button({
@@ -40,7 +40,7 @@ botui.message.bot({
 var other = function() {
     botui.message.bot({
         delay: 1500,
-        content: "我是一名嵌入式软件程序员,主要系统是Linux！😎"
+        content: "我在做嵌入式相关工作,主要系统是Linux！😎"
     }).then(function() {
         return botui.message.bot({
             delay: 1500,
