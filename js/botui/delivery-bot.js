@@ -44,7 +44,7 @@ var other = function() {
     }).then(function() {
         return botui.message.bot({
             delay: 1500,
-            content: "之前所在学校是北京大学，专业是计算机科学与技术"
+            content: "之前所在学校 北京大学，专业是计算机科学与技术"
         })
     }).then(function() {
         return botui.message.bot({
@@ -54,7 +54,7 @@ var other = function() {
     }).then(function() {
         return botui.message.bot({
             delay: 2000,
-            content: "关于博客建设是纯小白一枚，“前院儿”主题可以说是东拼西凑而来😂"
+            content: "关于博客建设 纯小白一枚，“前院儿”主题可以说是东拼西凑而来😂"
         })
     }).then(function() {
         return botui.message.bot({
@@ -85,7 +85,7 @@ var other = function() {
     }).then(function(res) {
         return botui.message.bot({
             delay: 1500,
-            content: "emmmmm，没有，只是自己名字的全拼_(:з」∠)_"
+            content: "emmmmm，没有，只是自己名字全拼_(:з」∠)_"
         })
     }).then(function(res) {
         return botui.message.bot({
