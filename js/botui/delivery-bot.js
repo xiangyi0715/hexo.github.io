@@ -49,7 +49,7 @@ var other = function() {
     }).then(function() {
         return botui.message.bot({
             delay: 2000,
-            content: "略晓得一些程序语言皮毛"
+            content: "略晓得部分编程语言"
         })
     }).then(function() {
         return botui.message.bot({
