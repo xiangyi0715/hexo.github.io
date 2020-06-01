@@ -61,7 +61,25 @@ var other = function() {
             delay: 1800,
             content: "不过关于嵌入式、数据、信息、计算机等方面还是有一些想法的,欢迎来讨论😉"
         })
-    }).then(function() {
+    }).then(function () {
+		    return botui.message.bot({
+		      delay: 1200,
+		      content: '你叫什么名字？（填写后按回车键）'
+		    });
+		  }).then(function () {
+		    return botui.action.text({
+		      delay: 800,
+		      action: {
+		        value: 'John Doe',
+		        placeholder: '填写你的名字'
+		      }
+		    });
+		  }).then(function (res) {
+		    return botui.message.bot({
+		      delay: 500,
+		      content: res.value + ' 是个好名字！'
+		    });
+		  }).then(function() {
         return botui.action.button({
             delay: 1500,
             action: [{
@@ -87,7 +105,13 @@ var other = function() {
             delay: 1500,
             content: "emmmmm，没有，只是自己名字全拼_(:з」∠)_"
         })
-    }).then(function(res) {
+    }).then(function (res) {
+		    return botui.message.bot({
+		      delay: 1200,
+		      type: 'embed',
+		      content: 'https://i.loli.net/2020/06/01/kK8fBRYduiV7zx9.png'
+		    });
+		  }).then(function(res) {
         return botui.message.bot({
             delay: 1500,
             content: "那么，仔细看看我的博客吧😇 "
