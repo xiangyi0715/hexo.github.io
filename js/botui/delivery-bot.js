@@ -59,7 +59,7 @@ var other = function() {
     }).then(function() {
         return botui.message.bot({
             delay: 1800,
-            content: "不过关于嵌入式、数据、信息、计算机等方面还是有一些想法的,欢迎来讨论😉"
+            content: "不过关于嵌入式、计算机视觉等方面还是有一些想法的,欢迎来讨论😉"
         })
     }).then(function () {
 		    return botui.message.bot({
