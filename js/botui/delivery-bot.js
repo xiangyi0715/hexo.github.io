@@ -44,7 +44,7 @@ var other = function() {
     }).then(function() {
         return botui.message.bot({
             delay: 1500,
-            content: "在哪毕业?---北京大学，专业是计算机科学与技术"
+            content: "在哪毕业?---PKU，专业是计算机科学与技术"
         })
     }).then(function() {
         return botui.message.bot({
