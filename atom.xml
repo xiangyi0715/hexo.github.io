@@ -29,7 +29,7 @@
       
         
         
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+          &lt;!-- build time:Thu Jun 04 2020 17:17:48 GMT+0800 (CST) --&gt;&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot;
         
       
     
@@ -56,7 +56,7 @@
       
         
         
-          &lt;p&gt;&amp;emsp;&amp;emsp;Linux内核中Makefile 的作用是根据配置的情况，构造出需要编译的源文件列表，然后分别编译，并把目标代码链接到一起，最终形成 linux 内核二进制文件。&lt;br&gt;&amp;emsp;&amp;emsp;由于 Linux 内核源代码是按照树形结构组织的，所以
+          &lt;!-- build time:Thu Jun 04 2020 17:17:48 GMT+0800 (CST) --&gt;&lt;p&gt;&amp;emsp;&amp;emsp;Linux内核中Makefile
         
       
     
@@ -85,7 +85,7 @@
       
         
         
-          &lt;h1 id=&quot;🌻Gridea-Chic-Unique&quot;&gt;&lt;a href=&quot;#🌻Gridea-Chic-Unique&quot; class=&quot;headerlink&quot;
+          &lt;!-- build time:Thu Jun 04 2020 17:17:48 GMT+0800 (CST) --&gt;&lt;h1 id=&quot;🌻Gridea-Chic-Unique&quot;&gt;&lt;a href=&quot;#🌻Gridea-Chic-Unique&quot; class=&quot;headerlink&quot;
         
       
     
@@ -118,7 +118,7 @@
       
         
         
-          &lt;p&gt;&lt;strong&gt;I am not good at English!&lt;/strong&gt;&lt;br&gt;&lt;/br&gt;&lt;br&gt;1、Nuts:呸！/哎呦！/胡说！/混蛋！/我不信！&lt;br&gt;2、Can-do:能人&lt;br&gt;3、I see:我明白了&lt;br&gt;4、Chin
+          &lt;!-- build time:Thu Jun 04 2020 17:17:48 GMT+0800 (CST) --&gt;&lt;p&gt;&lt;strong&gt;I am not good at
         
       
     
@@ -147,10 +147,7 @@
       
         
         
-          &lt;blockquote&gt;
-&lt;p&gt;《复杂》这本书在半年前读过，感觉不错，但没有做整理。以下为简单整理：&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;本书是以侯世达的著作《哥德尔、埃舍尔、巴赫——GEB之大成》中对还原论的阐述作为前言开头的，而本书的作者Mela
+          &lt;!-- build time:Thu Jun 04 2020 17:17:48 GMT+0800 (CST)
         
       
     
@@ -181,10 +178,7 @@
       
         
         
-          &lt;blockquote&gt;
-&lt;p&gt;Qt+Windows-Plate Recognition&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+          &lt;!-- build time:Thu Jun 04 2020 17:17:48 GMT+0800 (CST) --&gt;&lt;blockquote&gt;&lt;p&gt;Qt+Windows-Plate Recognition&lt;/p&gt;&lt;/blockquote&gt;&lt;h2 id=&quot;前言&quot;&gt;&lt;a
         
       
     
@@ -219,8 +213,7 @@
       
         
         
-          &lt;p&gt;“诗只不过是生命证物之一，若你人生丰实，诗只是灰烬而已。”（：&lt;/p&gt;
-&lt;h2 id=&quot;追求&quot;&gt;&lt;a href=&quot;#追求&quot; class=&quot;headerlink&quot; title=&quot;追求&quot;&gt;&lt;/a&gt;&lt;strong&gt;追求&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;
+          &lt;!-- build time:Thu Jun 04 2020 17:17:48 GMT+0800 (CST) --&gt;&lt;p&gt;“诗只不过是生命证物之一，若你人生丰实，诗只是灰烬而已。”（：&lt;/p&gt;&lt;h2 id=&quot;追求&quot;&gt;&lt;a href=&quot;#追求&quot;
         
       
     
@@ -249,7 +242,7 @@
       
         
         
-          &lt;h2 id=&quot;👉问题一：-dpkg问题&quot;&gt;&lt;a href=&quot;#👉问题一：-dpkg问题&quot; class=&quot;headerlink&quot; title=&quot;👉问题一：(dpkg问题)&quot;&gt;&lt;/a&gt;👉&lt;strong&gt;问题一：(dpkg问题)&lt;/strong&gt;&lt;/h2&gt;&lt;p&gt;出现E:
+          &lt;!-- build time:Thu Jun 04 2020 17:17:48 GMT+0800 (CST) --&gt;&lt;h2 id=&quot;👉问题一：-dpkg问题&quot;&gt;&lt;a href=&quot;#👉问题一：-dpkg问题&quot; class=&quot;headerlink&quot;
         
       
     
@@ -280,7 +273,7 @@
       
         
         
-          &lt;p&gt;转发记录一下。。。&lt;br&gt;&amp;emsp;&amp;emsp;本篇文章主要讲解Qt5.6之后的QWebEngine与html或js的交互。在Qt5.6之前Qt窗体嵌入网页使用的是QWebKit但是Qt5.6将webkit去掉了，这时候很多人由于以前的项目中使用了QWebkit，而不想对
+          &lt;!-- build time:Thu Jun 04 2020 17:17:48 GMT+0800 (CST)
         
       
     
@@ -309,7 +302,7 @@
       
         
         
-          &lt;p&gt;&amp;emsp;&amp;emsp;最近需要做一个联级分类器来定位图像中的目标（用车牌定位来做例子），于是选用opencv的LBP算法。关于介绍，这篇博文写的还可以 &lt;a
+          &lt;!-- build time:Thu Jun 04 2020 17:17:48 GMT+0800 (CST) --&gt;&lt;p&gt;&amp;emsp;&amp;emsp;最近需要做一个联级分类器来定位图像中的目标（用车牌定位来做例子），于是选用opencv的LBP算法。关于介绍，这篇博文写的还可以
         
       
     
@@ -340,7 +333,7 @@
       
         
         
-          &lt;p&gt;&lt;strong&gt;我的开发环境：&lt;/strong&gt;windows下opencv3.2，QT4.8.6。&lt;br&gt;&lt;strong&gt;遇到的问题是：&lt;/strong&gt; &lt;code&gt;smooth =
+          &lt;!-- build time:Thu Jun 04 2020 17:17:48 GMT+0800 (CST)
         
       
     
