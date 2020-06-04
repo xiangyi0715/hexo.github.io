@@ -59,7 +59,7 @@ var other = function() {
     }).then(function() {
         return botui.message.bot({
             delay: 1800,
-            content: "不过关于嵌入式、Linux、计算机视觉等方面 欢迎来讨论😉"
+            content: "☀️ ✌️ 🤟 😉"
         })
     }).then(function () {
 		    return botui.message.bot({
