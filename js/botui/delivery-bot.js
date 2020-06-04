@@ -49,17 +49,17 @@ var other = function() {
     }).then(function() {
         return botui.message.bot({
             delay: 2000,
-            content: "略晓得部分编程语言"
+            content: "关于博客建设 纯小白一枚..."
         })
     }).then(function() {
         return botui.message.bot({
             delay: 2000,
-            content: "关于博客建设 纯小白一枚，“前院儿”主题可以说是东拼西凑而来😂"
+            content: "“前院儿”主题可以说是东拼西凑而来😂"
         })
     }).then(function() {
         return botui.message.bot({
             delay: 1800,
-            content: "不过关于嵌入式、计算机视觉等方面还是有一些想法的,欢迎来讨论😉"
+            content: "不过关于嵌入式、Linux、计算机视觉等方面 欢迎来讨论😉"
         })
     }).then(function () {
 		    return botui.message.bot({
