@@ -169,44 +169,6 @@
   </entry>
   
   <entry>
-    <title>关于QW-PR的一部分总结</title>
-    <link href="xiangyi0715.github.io/posts/c5b3.html"/>
-    <id>xiangyi0715.github.io/posts/c5b3.html</id>
-    <published>2020-01-13T12:01:19.000Z</published>
-    <updated>2020-06-07T00:21:52.378Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        
-        
-          &lt;blockquote&gt;
-&lt;p&gt;Qt+Windows-Plate Recognition&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
-        
-      
-    
-    </summary>
-    
-    
-      <category term="笔记" scheme="xiangyi0715.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
-    
-    
-      <category term="qt" scheme="xiangyi0715.github.io/tags/qt/"/>
-    
-      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
-    
-      <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
-    
-      <category term="windows" scheme="xiangyi0715.github.io/tags/windows/"/>
-    
-      <category term="plate recognition" scheme="xiangyi0715.github.io/tags/plate-recognition/"/>
-    
-  </entry>
-  
-  <entry>
     <title>个人短句集</title>
     <link href="xiangyi0715.github.io/posts/1667.html"/>
     <id>xiangyi0715.github.io/posts/1667.html</id>
@@ -355,6 +317,44 @@
       <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
       <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>关于QW-PR的一部分总结</title>
+    <link href="xiangyi0715.github.io/posts/c5b3.html"/>
+    <id>xiangyi0715.github.io/posts/c5b3.html</id>
+    <published>2017-10-13T12:01:19.000Z</published>
+    <updated>2020-06-07T09:51:07.699Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;blockquote&gt;
+&lt;p&gt;Qt+Windows-Plate Recognition&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="笔记" scheme="xiangyi0715.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="qt" scheme="xiangyi0715.github.io/tags/qt/"/>
+    
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+      <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
+    
+      <category term="windows" scheme="xiangyi0715.github.io/tags/windows/"/>
+    
+      <category term="plate recognition" scheme="xiangyi0715.github.io/tags/plate-recognition/"/>
     
   </entry>
   
