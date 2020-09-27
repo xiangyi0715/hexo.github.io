@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="xiangyi0715.github.io/"/>
-  <updated>2020-05-27T01:22:04.202Z</updated>
+  <updated>2020-09-27T09:25:34.593Z</updated>
   <id>xiangyi0715.github.io/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>QW-PR简介</title>
+    <link href="xiangyi0715.github.io/posts/a1a5.html"/>
+    <id>xiangyi0715.github.io/posts/a1a5.html</id>
+    <published>2020-09-27T09:25:34.593Z</published>
+    <updated>2020-09-27T09:25:34.593Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;img src=&quot;https://i.loli.net/2020/09/27/b2kITdxHLMSKaJA.jpg&quot; alt=&quot;&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://i.loli.net/2020/09/27/lWiIH73LCvNnfVm.jpg&quot;
+        
+      
+    
+    </summary>
+    
+    
+      <category term="笔记" scheme="xiangyi0715.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="windows" scheme="xiangyi0715.github.io/tags/windows/"/>
+    
+      <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
+    
+      <category term="qt" scheme="xiangyi0715.github.io/tags/qt/"/>
+    
+      <category term="plate recognition" scheme="xiangyi0715.github.io/tags/plate-recognition/"/>
+    
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>
@@ -221,11 +256,11 @@
       <category term="Linux" scheme="xiangyi0715.github.io/categories/Linux/"/>
     
     
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
       <category term="ubuntu" scheme="xiangyi0715.github.io/tags/ubuntu/"/>
     
       <category term="Q&amp;A" scheme="xiangyi0715.github.io/tags/Q-A/"/>
-    
-      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
   </entry>
   
@@ -281,9 +316,9 @@
       <category term="Opencv" scheme="xiangyi0715.github.io/categories/Opencv/"/>
     
     
-      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
-    
       <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
+    
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
       <category term="lbp" scheme="xiangyi0715.github.io/tags/lbp/"/>
     
@@ -312,11 +347,11 @@
       <category term="Qt" scheme="xiangyi0715.github.io/categories/Qt/"/>
     
     
+      <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
+    
       <category term="qt" scheme="xiangyi0715.github.io/tags/qt/"/>
     
       <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
-    
-      <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
     
   </entry>
   
@@ -346,15 +381,15 @@
       <category term="笔记" scheme="xiangyi0715.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
-      <category term="qt" scheme="xiangyi0715.github.io/tags/qt/"/>
-    
-      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+      <category term="windows" scheme="xiangyi0715.github.io/tags/windows/"/>
     
       <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
     
-      <category term="windows" scheme="xiangyi0715.github.io/tags/windows/"/>
+      <category term="qt" scheme="xiangyi0715.github.io/tags/qt/"/>
     
       <category term="plate recognition" scheme="xiangyi0715.github.io/tags/plate-recognition/"/>
+    
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
   </entry>
   
