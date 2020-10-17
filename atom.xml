@@ -39,6 +39,8 @@
       <category term="笔记" scheme="xiangyi0715.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
       <category term="windows" scheme="xiangyi0715.github.io/tags/windows/"/>
     
       <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
@@ -46,8 +48,6 @@
       <category term="qt" scheme="xiangyi0715.github.io/tags/qt/"/>
     
       <category term="plate recognition" scheme="xiangyi0715.github.io/tags/plate-recognition/"/>
-    
-      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
   </entry>
   
@@ -316,9 +316,9 @@
       <category term="Opencv" scheme="xiangyi0715.github.io/categories/Opencv/"/>
     
     
-      <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
-    
       <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
+      <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
     
       <category term="lbp" scheme="xiangyi0715.github.io/tags/lbp/"/>
     
@@ -347,11 +347,11 @@
       <category term="Qt" scheme="xiangyi0715.github.io/categories/Qt/"/>
     
     
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
       <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
     
       <category term="qt" scheme="xiangyi0715.github.io/tags/qt/"/>
-    
-      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     
   </entry>
   
@@ -381,6 +381,8 @@
       <category term="笔记" scheme="xiangyi0715.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
     
     
+      <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
+    
       <category term="windows" scheme="xiangyi0715.github.io/tags/windows/"/>
     
       <category term="opencv" scheme="xiangyi0715.github.io/tags/opencv/"/>
@@ -388,6 +390,33 @@
       <category term="qt" scheme="xiangyi0715.github.io/tags/qt/"/>
     
       <category term="plate recognition" scheme="xiangyi0715.github.io/tags/plate-recognition/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AI的小思考</title>
+    <link href="xiangyi0715.github.io/posts/9354.html"/>
+    <id>xiangyi0715.github.io/posts/9354.html</id>
+    <published>2016-10-02T13:00:00.000Z</published>
+    <updated>2020-10-17T09:14:33.253Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&amp;emsp;&amp;emsp;提到AI，总不免谈到替代人类的工作，俗称“抢饭碗”。有一些人是畏惧，畏惧自己的工作保不住，畏惧机器学习的速度远大于人类，畏惧AI一旦有了自己的思想我们敌不过或是没有制约的良方。有些人是担心，担心我们接触人工智能（包括现在的一些智能设备）多了之后会对自
+        
+      
+    
+    </summary>
+    
+    
+      <category term="笔记" scheme="xiangyi0715.github.io/categories/%E7%AC%94%E8%AE%B0/"/>
+    
+    
+      <category term="AI" scheme="xiangyi0715.github.io/tags/AI/"/>
     
       <category term="原创" scheme="xiangyi0715.github.io/tags/%E5%8E%9F%E5%88%9B/"/>
     

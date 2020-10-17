@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Qt5.6之后与网页html/js的交互实现, xiangyi">
+    <meta name="keywords" content="AI的小思考, xiangyi">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Qt5.6之后与网页html/js的交互实现 | xiangyi</title>
+    <title>AI的小思考 | xiangyi</title>
     <link rel="icon" type="image/png" href="/medias/logo.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -394,12 +394,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Qt5.6之后与网页html/js的交互实现</h1>
+                    <h1 class="description center-align post-title">AI的小思考</h1>
                 </div>
             </div>
         </div>
@@ -516,12 +516,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E8%BD%AC%E8%BD%BD/">
-                                <span class="chip bg-color">转载</span>
+                            <a href="/tags/AI/">
+                                <span class="chip bg-color">AI</span>
                             </a>
                         
-                            <a href="/tags/qt/">
-                                <span class="chip bg-color">qt</span>
+                            <a href="/tags/%E5%8E%9F%E5%88%9B/">
+                                <span class="chip bg-color">原创</span>
                             </a>
                         
                     </div>
@@ -532,8 +532,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Qt/" class="post-category">
-                                Qt
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                笔记
                             </a>
                         
                     </div>
@@ -545,7 +545,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2018-09-18
+                    2016-10-02
                 </div>
                 
 
@@ -554,7 +554,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.4k
                 </div>
                 
 
@@ -576,79 +576,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>转发记录一下。。。<br>&emsp;&emsp;本篇文章主要讲解Qt5.6之后的QWebEngine与html或js的交互。在Qt5.6之前Qt窗体嵌入网页使用的是QWebKit但是Qt5.6将webkit去掉了，这时候很多人由于以前的项目中使用了QWebkit，而不想对Qt进行升级。</p>
-<ul>
-<li>Qt5.6之前Qt与html/js的交互方式</li>
-<li>Qt5.6之后的交互方式</li>
-<li>为什么要改变</li>
-<li>改变之后的优点</li>
-</ul>
-<hr>
-<h2 id="Qt5-6之前Qt与html-js的交互方式"><a href="#Qt5-6之前Qt与html-js的交互方式" class="headerlink" title="Qt5.6之前Qt与html/js的交互方式"></a>Qt5.6之前Qt与html/js的交互方式</h2><p>&emsp;&emsp;Qt5.6之前Qt加载html以及与网页的交互统统用的都是QWebkit，显示网页用的都是QWebView。具体的使用方式为：</p>
-<ul>
-<li><p>在Qt中加载页面</p>
-<pre><code>  QWebView jsWebView;
-      jsWebView.load(QUrl(&quot;www.baidu.com&quot;));
-      //jsWebView.show(); 加入这行代码就可以看到窗体了</code></pre></li>
-<li><p>在Qt中运行js对象</p>
-<pre><code>  QVariant ret = jsWebView-&gt;page()-&gt;mainFrame()-    &gt;evaluateJavaScript(strParam);    //strparam是运行js函数可以带的参数
-
-  QString content = ret.toString();//查看运行结果</code></pre></li>
-<li><p>js对象调用Qt的函数</p>
-<pre><code>  //MainWindow 为注册的对象，为了能让js使用此对象
-  jsWebView-&gt;page()-&gt;mainFrame()-&gt;addToJavaScriptWindowObject(&quot;MainWindow&quot;,this);</code></pre><p>&emsp;&emsp;然后可以在js代码中使用MainWindow对象调用Qt的槽函数</p>
-</li>
-</ul>
-<p>&emsp;&emsp;相信这种方法很多Qter已经掌握了。下面就来说一说Qt进入到5.6之后的调用方法</p>
-<h2 id="Qt5-6调用js的方法"><a href="#Qt5-6调用js的方法" class="headerlink" title="Qt5.6调用js的方法"></a>Qt5.6调用js的方法</h2><p>&emsp;&emsp;Qt5.6之后不能使用QWebView了。代替它的是QWebEngineView。QWebEngineView的使用方式同QWebView基本一致。下面来看下代码</p>
-<pre><code>    QWebEngineView ＊engine = new QWebEngineView(this);
-    connect(engine, SIGNAL(loadFinished(bool)), this, SLOT(loadFinished(bool)));
-    engine-&gt;load(QUrl(QDir::currentPath() + &quot;socketio.html&quot;));
-
-        engine-&gt;show();</code></pre><blockquote>
-<p>Qt5.6之后与js通信的重要类是：QWebChannel</p>
-</blockquote>
-<ul>
-<li>交互的具体实现代码 </li>
-</ul>
-<p>1、Qt调用js的函数：</p>
-<pre><code>     engine-&gt;page()-&gt;runJavaScript(strPusherURL,0,[](const QVariant &amp;var){qDebug() &lt;&lt; var.toString();});</code></pre><p>2、js中调用Qt的函数</p>
-<pre><code>    QWebChannel ＊channel = new QWebChannel(engine-&gt;page());
-    channel-&gt;registerObject(QStringLiteral(&quot;MainWindow&quot;), this);
-    engine-&gt;page()-&gt;setWebChannel(channel);</code></pre><p>&emsp;&emsp;以上第二步方式能够让js使用Qt的对象，但是从js能够调用到具体的函数就得再下点功夫，并且是跟之前的版本完全不同的方法。 </p>
-<ul>
-<li>使用属性系统设置回调方法。</li>
-</ul>
-<p>具体的例子：</p>
-<pre><code>     Q_PROPERTY(QString param1 READ objectName WRITE setContent)
-    Q_PROPERTY(QString param2 READ objectName WRITE setContent)</code></pre><p>&emsp;&emsp;以上方式就是设置了两个属性，这两个属性为js调用Qt函数setContent时的参数。<br>&emsp;&emsp;如果你的代码这样编写了，运行了，排除掉语法错误之后，编译器还是会报道一个错误的。 </p>
-<blockquote>
-<p>:-1: error: No rule to make target ../chatclient-html/qwebchannel.js’, needed byqwebchannel.js’. Stop.</p>
-</blockquote>
-<p>&emsp;&emsp;但是不要着急，这个文件时Qt通信需要带的文件，你可以打开creator的例子 搜索下QWebChannel，打开工程，打开工程文件你就可以找到这个js文件了。<br>&emsp;&emsp;如果你以前的代码用QWebKit方式编写的，要升级到5.6，其实很简单。 </p>
-<blockquote>
-<ol>
-<li>加入QWebChannel </li>
-<li>修改注册对象方式为：registerObject </li>
-<li>使用属性系统设置回调方法以及回调的参数 </li>
-<li>工程中加入qwebchannel.js文件</li>
-</ol>
-</blockquote>
-<h2 id="Qt官方为什么要改变以及改变之后的优点"><a href="#Qt官方为什么要改变以及改变之后的优点" class="headerlink" title="Qt官方为什么要改变以及改变之后的优点"></a>Qt官方为什么要改变以及改变之后的优点</h2><blockquote>
-<p>是官方的推荐方式，他可以很方便的实现C++和HTML/JS的双向通信，同时实现C++和HTML/JS的解耦，方便开发人员的分工及系统集成，参见后面的例子。<br>在QT5.5和QT5.6中，利用Qt的QtWebEngine和WebChannel模块，你完全可以进行本地桌面与web混合应用开发，你可以自由地混合JavaScript，样式表，Web内容和Qt组件。基于Chromium的<br>QtWebEngine是一个非常成熟的web浏览引擎。你可以在Ｃ++中执行JavaScript，或者在网页中集成Ｃ++对象，并且通过JavaScript和这些对象进行交互。</p>
-</blockquote>
-<blockquote>
-<p>一个现代的ＨＴＭＬ渲染引擎只是混合开发的一半，另一半就是本地应用和渲染对象的交互。ＱＴ的Chromium的QtWebEngine集成提供了这种解决方案，当然目前还不是很完善。</p>
-</blockquote>
-<blockquote>
-<p>从QT5.4开始就新增了QtWebChannel模块，该模块提供了在QML/C++和HTML/Javascript之间的一个简单、易用的桥接，从而使得开发能够使用Qt和Web技术进行混合开发，目前QT官方也推荐是用QtWebChannel来桥接C++和HTML，参见Qt<br>WebChannel–bridgingthegapbetweenC++/QMLandtheweb——<a href="https://www.youtube.com/watch?v=KnvnTi6XafA，这是2014年Qt开发者大会上的一段视屏演讲。" target="_blank" rel="noopener">https://www.youtube.com/watch?v=KnvnTi6XafA，这是2014年Qt开发者大会上的一段视屏演讲。</a></p>
-</blockquote>
-<blockquote>
-<p>通过QtWebChannel能够实现C++/QML和HTML/javascript客户端之间进行无缝桥接，目前主要支持两种方式的桥接。</p>
-</blockquote>
-<blockquote>
-<p>客户机可以是任何支持WebSockets的JavaScriptruntime机器和应用，客户机可以是独立的应用或浏览器。也就是说QtWebChannel是基于WebSockets协议之上。<br>通过IPC的方式实现C++/QML和HTML/javascript客户端之间进行通信。在QT应用内嵌入HTML或JS页面的情况下使用基于IPC的WebChannel通信效率更高效。</p>
-</blockquote>
+                <p>&emsp;&emsp;提到AI，总不免谈到替代人类的工作，俗称“抢饭碗”。有一些人是畏惧，畏惧自己的工作保不住，畏惧机器学习的速度远大于人类，畏惧AI一旦有了自己的思想我们敌不过或是没有制约的良方。有些人是担心，担心我们接触人工智能（包括现在的一些智能设备）多了之后会对自身产生不良后果。说退化的也好，说影响健康的也罢总之是担忧大于支持。有些人是持观望态度，就像前几个月AlpahGO战li一样，那个机器赢了几局又能怎样？面对人类的思想灵活和多变，它顶多就能学习有限的东西，而且还不一定派的上用处，任其发展，只要做出我觉得好用的东西就行了（不管是哪个公司或什么样的组织）。<br>&emsp;&emsp;对于上面说的第一种，我管这叫“瓶颈中的水垢”，堵在快速发展的路口。第二种是“水桶中的青蛙”，抬头看到圆的，蓝的以为自己就是在井中，况且水的高度又是由自己掌握。而第三种可能也是大多数人都持有的观点，“河水中的木筏”，自己的流向由河水和上面的船帆决定，而撞石头这种随机事件是由自己承受的。以上几种观点在下面都有我自己的看法。<br>&emsp;&emsp;人类史上每一次科技革新难免会出现一波或几波失业潮。过去的几次工业革命如此，以后应该也会在所难免。一部分劳动密集型(，重复性的工作由机器替代不可避免，同时会把人类的双手从工作中解放出来。第一：我们在有预见性的对待自己工作的同时，其中不可忽略的一个因素就是传感器已经伸向了各个领域。有人也许会说，中国人口那么多，政府为了减少失业一定会谨慎对待发展AI的。然而我觉得一定不会，我们在芯片产业，操作系统已经落后国外了，再不发展恐怕只有更被动。其次，中国老龄化慢慢到来，在“老有所依”的传统文化中老有所值即有自我实现的价值变得更加重要，精神文化的发展也许会带动一大批第三产业，要想让AI来代替至少现在还不可能，以后5—10年感觉也不太有可能。再其次对于基础研发的投入应该还会增加。第二：我觉得最应该担心的到不是机器抢走我们的工作而是在为我们服务的同时对人们产生的影响。坏的影响，即我在开始提到的第二点。<br>&emsp;&emsp;几个月前看到个文，脑洞大开说的是如果人类进化成什么样才不害怕被车撞，几个艺术家和科学家合作鼓捣出一货，没有脖子，头和身体连在一起，凡是容易碰破皮的地方有超厚的脂肪。如果论体型，估计减肥药厂该倒闭了。就是这么一个家伙，不知是常被车撞才进化成这样还是因为自己其他需求变成这样。觉得这货只是个噱头，但其反映出的我们的发展方向却很值得思考。前面提到的“担心”也并非无根据：“进化”这个词既体现在时间上又体现在空间上，达哥还没有说什么，不懂。然而只从个人来说，思考方式应该也有一点点是由你的生活方式，环境决定的（双向影响），而解决问题的思考方法对你做事会产生影响。长此以往定会渗透到你的生活，可以说和生活息息相关。例子就不举了。当被作为工具来使用的科技产品既是自己的需求又是外界因素的影响，所以产品的质量（这里更侧重于体验（不是用户体验而是产品体验））也应该是产品本身应具有的属性。即有双向影响。所以我一直认为，单方面的“人机交互”对个人意义不大。只是工具。工具可以说是最好的发明，但工具的定义不能不变。前几天的新闻Facebook,Amazon,GoogleAlphabet,IBM,Microsoft宣布缔结新的AI伙伴关系，进行研究和推广最佳做法。然而观望只能被别人推的更远，推到该去的地方。<br>&emsp;&emsp;忘了上次练笔是什么时候了，大概有杀猪刀那么久了吧。<br>本篇只代表个人观点，与非个人无关。<br>          2016.10.02晚</p>
+<p>注释：(劳动密集型：劳动密集型（Labour-intensive)为生产一定产量所必须投入的生产要素中，劳动投入的比例高于其它生产要素比例的产业。如轻纺工业、手工业和服务业等产业。这些产业占用资金少，设备的技术程度低，容纳劳动力较多。随着社会生产力的发展和科学技术在生产中的广泛应用，劳动密集型产业将逐步向资本密集型产业或知识密集型产业转化，或者在新的物质技术上形成新的劳动密集型产业。</p>
 
             </div>
             <hr/>
@@ -674,7 +603,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="xiangyi0715.github.io/posts/33d9.html">xiangyi0715.github.io/posts/33d9.html</a>
+                    <a href="xiangyi0715.github.io/posts/9354.html">xiangyi0715.github.io/posts/9354.html</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -712,12 +641,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E8%BD%AC%E8%BD%BD/">
-                                    <span class="chip bg-color">转载</span>
+                                <a href="/tags/AI/">
+                                    <span class="chip bg-color">AI</span>
                                 </a>
                             
-                                <a href="/tags/qt/">
-                                    <span class="chip bg-color">qt</span>
+                                <a href="/tags/%E5%8E%9F%E5%88%9B/">
+                                    <span class="chip bg-color">原创</span>
                                 </a>
                             
                         </div>
@@ -1179,31 +1108,34 @@ wpac_init.push({widget: 'Rating', id: 25443});
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/posts/8192.html">
+                <a href="/posts/c5b3.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="ubuntu中遇到的小问题汇总(不定期更新)">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="关于QW-PR的一部分总结">
                         
-                        <span class="card-title">ubuntu中遇到的小问题汇总(不定期更新)</span>
+                        <span class="card-title">关于QW-PR的一部分总结</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            👉问题一：(dpkg问题)出现E: Sub-process /usr/bin/dpkg returned an error code当使用apt-get安装软件时有时会发生类似于Errors were encountered while 
+                            
+Qt+Windows-Plate Recognition
+
+前言:&emsp;&emsp;车牌识别系统是现代智能交通系统中的重要组成部分之一，应用十分广泛并随着技术的发展日趋完善。它是以数字图像处理、模式识别、计算机视觉等技术为基础，对摄
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-01-04
+                            <i class="far fa-clock fa-fw icon-date"></i>2017-10-13
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Linux/" class="post-category">
-                                    Linux
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
                                 </a>
                             
                             
@@ -1217,12 +1149,20 @@ wpac_init.push({widget: 'Rating', id: 25443});
                         <span class="chip bg-color">原创</span>
                     </a>
                     
-                    <a href="/tags/ubuntu/">
-                        <span class="chip bg-color">ubuntu</span>
+                    <a href="/tags/windows/">
+                        <span class="chip bg-color">windows</span>
                     </a>
                     
-                    <a href="/tags/Q-A/">
-                        <span class="chip bg-color">Q&amp;A</span>
+                    <a href="/tags/opencv/">
+                        <span class="chip bg-color">opencv</span>
+                    </a>
+                    
+                    <a href="/tags/qt/">
+                        <span class="chip bg-color">qt</span>
+                    </a>
+                    
+                    <a href="/tags/plate-recognition/">
+                        <span class="chip bg-color">plate recognition</span>
                     </a>
                     
                 </div>
@@ -1233,53 +1173,50 @@ wpac_init.push({widget: 'Rating', id: 25443});
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/posts/5c34.html">
+                <a href="/posts/9354.html">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="关于 Opencv 训练LBP联级分类器的傻瓜式操作">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="AI的小思考">
                         
-                        <span class="card-title">关于 Opencv 训练LBP联级分类器的傻瓜式操作</span>
+                        <span class="card-title">AI的小思考</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            &emsp;&emsp;最近需要做一个联级分类器来定位图像中的目标（用车牌定位来做例子），于是选用opencv的LBP算法。关于介绍，这篇博文写的还可以 点击打开链接 实现的时候查找其他博客也遇到了很多问题，我用的是opencv3.2版本，
+                            &emsp;&emsp;提到AI，总不免谈到替代人类的工作，俗称“抢饭碗”。有一些人是畏惧，畏惧自己的工作保不住，畏惧机器学习的速度远大于人类，畏惧AI一旦有了自己的思想我们敌不过或是没有制约的良方。有些人是担心，担心我们接触人工智能（包括
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2018-04-13
+                                <i class="far fa-clock fa-fw icon-date"></i>2016-10-02
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Opencv/" class="post-category">
-                                    Opencv
+                            <a href="/categories/%E7%AC%94%E8%AE%B0/" class="post-category">
+                                    笔记
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
+                    <a href="/tags/AI/">
+                        <span class="chip bg-color">AI</span>
+                    </a>
+                    
                     <a href="/tags/%E5%8E%9F%E5%88%9B/">
                         <span class="chip bg-color">原创</span>
-                    </a>
-                    
-                    <a href="/tags/opencv/">
-                        <span class="chip bg-color">opencv</span>
-                    </a>
-                    
-                    <a href="/tags/lbp/">
-                        <span class="chip bg-color">lbp</span>
                     </a>
                     
                 </div>
